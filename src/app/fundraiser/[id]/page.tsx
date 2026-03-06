@@ -11,6 +11,7 @@ import { getAllFundraisers } from '@/data/fundraisers';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScrollDepth } from '@/hooks/useScrollDepth';
 import { useTimeOnPage } from '@/hooks/useTimeOnPage';
+import { usePerformance } from '@/hooks/usePerformance';
 import HeroBanner from '@/components/fundraiser/HeroBanner';
 import CampaignHeader from '@/components/fundraiser/CampaignHeader';
 import DonationProgressBar from '@/components/fundraiser/DonationProgressBar';
@@ -23,7 +24,10 @@ import CommunityBadge from '@/components/fundraiser/CommunityBadge';
 import DonationsList from '@/components/fundraiser/DonationsList';
 import ShareButtons from '@/components/fundraiser/ShareButtons';
 import AIStoryGenerator from '@/components/fundraiser/AIStoryGenerator';
+import CampaignHealthCard from '@/components/fundraiser/CampaignHealthCard';
 import FundraiserCard from '@/components/shared/FundraiserCard';
+import LiveViewers from '@/components/shared/LiveViewers';
+import SocialProofToast from '@/components/shared/SocialProofToast';
 import AnalyticsDashboard from '@/components/analytics/AnalyticsDashboard';
 
 export default function FundraiserPage() {
@@ -32,6 +36,7 @@ export default function FundraiserPage() {
   const { track } = useAnalytics(`/fundraiser/${id}`);
   useScrollDepth(`/fundraiser/${id}`);
   useTimeOnPage(`/fundraiser/${id}`);
+  usePerformance(`/fundraiser/${id}`);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [story, setStory] = useState('');
@@ -110,6 +115,8 @@ export default function FundraiserPage() {
               onTrack={() => track('ai_story_generate')}
             />
 
+            <CampaignHealthCard fundraiser={fundraiser} />
+
             <DonationsList donations={donations} />
 
             {/* Similar Causes */}
@@ -128,6 +135,7 @@ export default function FundraiserPage() {
           {/* Sidebar - right (desktop only) */}
           <div className="hidden lg:block">
             <div className="sticky top-24 space-y-5">
+              <LiveViewers baseCount={4} fundraiserId={fundraiser.id} />
               <DonationProgressBar
                 raised={fundraiser.raisedAmount}
                 goal={fundraiser.goalAmount}
@@ -168,6 +176,7 @@ export default function FundraiserPage() {
         onTrack={(event, data) => track(event as never, data)}
       />
 
+      <SocialProofToast donations={donations} fundraiserTitle={fundraiser.title} />
       <AnalyticsDashboard />
     </>
   );

@@ -8,6 +8,7 @@ import { getActivitiesForUser } from '@/data/activity';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScrollDepth } from '@/hooks/useScrollDepth';
 import { useTimeOnPage } from '@/hooks/useTimeOnPage';
+import { usePerformance } from '@/hooks/usePerformance';
 import ProfileHeader from '@/components/profile/ProfileHeader';
 import FollowerStats from '@/components/profile/FollowerStats';
 import HighlightsSection from '@/components/profile/HighlightsSection';
@@ -21,6 +22,7 @@ export default function ProfilePage() {
   const { track } = useAnalytics(`/profile/${id}`);
   useScrollDepth(`/profile/${id}`);
   useTimeOnPage(`/profile/${id}`);
+  usePerformance(`/profile/${id}`);
 
   const user = getUserById(id);
   const fundraisers = user ? getFundraisersByOrganizer(user.id) : [];

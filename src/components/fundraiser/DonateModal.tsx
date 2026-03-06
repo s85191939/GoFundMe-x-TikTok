@@ -5,6 +5,7 @@ import type { Fundraiser, AIDonationSuggestion } from '@/data/types';
 import { formatCurrency } from '@/lib/formatters';
 import { calculateDonationSuggestions } from '@/lib/ai';
 import SmartDonationSuggestions from '@/components/shared/SmartDonationSuggestions';
+import ImpactCalculator from '@/components/shared/ImpactCalculator';
 
 interface DonateModalProps {
   isOpen: boolean;
@@ -93,6 +94,10 @@ export default function DonateModal({ isOpen, onClose, fundraiser, avgDonation, 
                 />
               </div>
             </div>
+
+            {currentAmount > 0 && (
+              <ImpactCalculator amount={currentAmount} category={fundraiser.category} />
+            )}
 
             <button
               onClick={handleSubmit}

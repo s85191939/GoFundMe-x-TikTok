@@ -9,6 +9,7 @@ import { getActivitiesForCommunity } from '@/data/activity';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScrollDepth } from '@/hooks/useScrollDepth';
 import { useTimeOnPage } from '@/hooks/useTimeOnPage';
+import { usePerformance } from '@/hooks/usePerformance';
 import CommunityBanner from '@/components/community/CommunityBanner';
 import FollowButton from '@/components/community/FollowButton';
 import MissionStatement from '@/components/community/MissionStatement';
@@ -32,6 +33,7 @@ export default function CommunityPage() {
   const { track } = useAnalytics(`/community/${id}`);
   useScrollDepth(`/community/${id}`);
   useTimeOnPage(`/community/${id}`);
+  usePerformance(`/community/${id}`);
 
   const [activeTab, setActiveTab] = useState('activity');
 
