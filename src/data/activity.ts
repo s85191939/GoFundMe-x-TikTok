@@ -260,6 +260,195 @@ export const activities: ActivityItem[] = [
       fundraiserTitle: 'Help Rebuild After the Storm',
     },
   },
+  // ===== New Fundraiser Creations =====
+  {
+    id: 'activity-21',
+    type: 'fundraiser_created',
+    userId: 'user-1',
+    targetId: 'fundraiser-6',
+    targetType: 'fundraiser',
+    description: 'Marissa Chen created a fundraiser "Community Garden Revival"',
+    timestamp: '2025-10-15T09:00:00Z',
+    metadata: {
+      fundraiserTitle: 'Community Garden Revival',
+    },
+  },
+  {
+    id: 'activity-22',
+    type: 'fundraiser_created',
+    userId: 'user-6',
+    targetId: 'fundraiser-7',
+    targetType: 'fundraiser',
+    description: 'Kevin Park created a fundraiser "Youth Soccer League Equipment Fund"',
+    timestamp: '2025-12-01T10:00:00Z',
+    metadata: {
+      fundraiserTitle: 'Youth Soccer League Equipment Fund',
+    },
+  },
+  {
+    id: 'activity-23',
+    type: 'fundraiser_created',
+    userId: 'user-8',
+    targetId: 'fundraiser-8',
+    targetType: 'fundraiser',
+    description: 'Marcus Johnson created a fundraiser "Memorial Fund for Officer Davis"',
+    timestamp: '2025-11-18T14:00:00Z',
+    metadata: {
+      fundraiserTitle: 'Memorial Fund for Officer Davis',
+    },
+  },
+  {
+    id: 'activity-24',
+    type: 'fundraiser_created',
+    userId: 'user-1',
+    targetId: 'fundraiser-9',
+    targetType: 'fundraiser',
+    description: 'Marissa Chen created a fundraiser "Clean Water Initiative Expansion"',
+    timestamp: '2025-09-28T11:30:00Z',
+    metadata: {
+      fundraiserTitle: 'Clean Water Initiative Expansion',
+    },
+  },
+  {
+    id: 'activity-25',
+    type: 'fundraiser_created',
+    userId: 'user-4',
+    targetId: 'fundraiser-10',
+    targetType: 'fundraiser',
+    description: 'James Nguyen created a fundraiser "Creative Arts After-School Program"',
+    timestamp: '2026-01-05T09:15:00Z',
+    metadata: {
+      fundraiserTitle: 'Creative Arts After-School Program',
+    },
+  },
+  {
+    id: 'activity-26',
+    type: 'fundraiser_created',
+    userId: 'user-2',
+    targetId: 'fundraiser-11',
+    targetType: 'fundraiser',
+    description: 'David Okonkwo created a fundraiser "Neighborhood Food Bank Drive"',
+    timestamp: '2026-02-01T08:00:00Z',
+    metadata: {
+      fundraiserTitle: 'Neighborhood Food Bank Drive',
+    },
+  },
+  {
+    id: 'activity-27',
+    type: 'fundraiser_created',
+    userId: 'user-10',
+    targetId: 'fundraiser-12',
+    targetType: 'fundraiser',
+    description: 'Thomas Wright created a fundraiser "Veterans Support & Transition Aid"',
+    timestamp: '2025-10-20T13:00:00Z',
+    metadata: {
+      fundraiserTitle: 'Veterans Support & Transition Aid',
+    },
+  },
+
+  // ===== New Donations =====
+  {
+    id: 'activity-28',
+    type: 'donation',
+    userId: 'user-9',
+    targetId: 'fundraiser-6',
+    targetType: 'fundraiser',
+    description: 'Aisha Patel donated $1,200 to "Community Garden Revival"',
+    timestamp: '2025-12-15T10:00:00Z',
+    metadata: {
+      amount: 1200,
+      fundraiserTitle: 'Community Garden Revival',
+    },
+  },
+  {
+    id: 'activity-29',
+    type: 'donation',
+    userId: 'user-9',
+    targetId: 'fundraiser-8',
+    targetType: 'fundraiser',
+    description: 'Aisha Patel donated $20,000 to "Memorial Fund for Officer Davis"',
+    timestamp: '2026-03-01T15:00:00Z',
+    metadata: {
+      amount: 20000,
+      fundraiserTitle: 'Memorial Fund for Officer Davis',
+    },
+  },
+  {
+    id: 'activity-30',
+    type: 'donation',
+    userId: 'user-8',
+    targetId: 'fundraiser-9',
+    targetType: 'fundraiser',
+    description: 'Marcus Johnson donated $2,000 to "Clean Water Initiative Expansion"',
+    timestamp: '2025-10-15T14:30:00Z',
+    metadata: {
+      amount: 2000,
+      fundraiserTitle: 'Clean Water Initiative Expansion',
+    },
+  },
+  {
+    id: 'activity-31',
+    type: 'donation',
+    userId: 'user-8',
+    targetId: 'fundraiser-11',
+    targetType: 'fundraiser',
+    description: 'Marcus Johnson donated $3,000 to "Neighborhood Food Bank Drive"',
+    timestamp: '2026-02-05T09:00:00Z',
+    metadata: {
+      amount: 3000,
+      fundraiserTitle: 'Neighborhood Food Bank Drive',
+    },
+  },
+
+  // ===== New Community Follows =====
+  {
+    id: 'activity-32',
+    type: 'follow',
+    userId: 'user-1',
+    targetId: 'community-3',
+    targetType: 'community',
+    description: 'Marissa Chen started following Neighbors United',
+    timestamp: '2025-10-10T08:00:00Z',
+    metadata: {
+      communityName: 'Neighbors United',
+    },
+  },
+  {
+    id: 'activity-33',
+    type: 'follow',
+    userId: 'user-8',
+    targetId: 'community-4',
+    targetType: 'community',
+    description: 'Marcus Johnson started following Honor & Remember',
+    timestamp: '2025-11-15T12:00:00Z',
+    metadata: {
+      communityName: 'Honor & Remember',
+    },
+  },
+  {
+    id: 'activity-34',
+    type: 'follow',
+    userId: 'user-6',
+    targetId: 'community-5',
+    targetType: 'community',
+    description: 'Kevin Park started following Youth Sports Alliance',
+    timestamp: '2025-12-01T09:00:00Z',
+    metadata: {
+      communityName: 'Youth Sports Alliance',
+    },
+  },
+  {
+    id: 'activity-35',
+    type: 'follow',
+    userId: 'user-4',
+    targetId: 'community-6',
+    targetType: 'community',
+    description: 'James Nguyen started following Creative Futures',
+    timestamp: '2026-01-03T10:00:00Z',
+    metadata: {
+      communityName: 'Creative Futures',
+    },
+  },
 ];
 
 export function getActivitiesForUser(userId: string): ActivityItem[] {

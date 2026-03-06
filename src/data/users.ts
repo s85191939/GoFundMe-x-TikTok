@@ -11,8 +11,8 @@ export const users: User[] = [
     followerCount: 214,
     followingCount: 87,
     isVerified: true,
-    fundraiserIds: ['fundraiser-1'],
-    communityIds: ['community-1'],
+    fundraiserIds: ['fundraiser-1', 'fundraiser-6', 'fundraiser-9'],
+    communityIds: ['community-1', 'community-3'],
   },
   {
     id: 'user-2',
@@ -24,8 +24,8 @@ export const users: User[] = [
     followerCount: 389,
     followingCount: 152,
     isVerified: true,
-    fundraiserIds: ['fundraiser-2'],
-    communityIds: ['community-1'],
+    fundraiserIds: ['fundraiser-2', 'fundraiser-11'],
+    communityIds: ['community-1', 'community-3'],
   },
   {
     id: 'user-3',
@@ -50,8 +50,8 @@ export const users: User[] = [
     followerCount: 278,
     followingCount: 64,
     isVerified: true,
-    fundraiserIds: ['fundraiser-4'],
-    communityIds: [],
+    fundraiserIds: ['fundraiser-4', 'fundraiser-10'],
+    communityIds: ['community-6'],
   },
   {
     id: 'user-5',
@@ -76,8 +76,8 @@ export const users: User[] = [
     followerCount: 42,
     followingCount: 118,
     isVerified: false,
-    fundraiserIds: [],
-    communityIds: ['community-1'],
+    fundraiserIds: ['fundraiser-7'],
+    communityIds: ['community-1', 'community-5'],
   },
   {
     id: 'user-7',
@@ -102,8 +102,8 @@ export const users: User[] = [
     followerCount: 134,
     followingCount: 67,
     isVerified: true,
-    fundraiserIds: [],
-    communityIds: ['community-1'],
+    fundraiserIds: ['fundraiser-8'],
+    communityIds: ['community-1', 'community-4'],
   },
   {
     id: 'user-9',
@@ -128,8 +128,8 @@ export const users: User[] = [
     followerCount: 76,
     followingCount: 53,
     isVerified: false,
-    fundraiserIds: [],
-    communityIds: [],
+    fundraiserIds: ['fundraiser-12'],
+    communityIds: ['community-4'],
   },
 ];
 

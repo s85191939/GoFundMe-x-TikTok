@@ -1,11 +1,12 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { getUserById, getAllUsers } from '@/data/users';
-import { getFundraisersByOrganizer } from '@/data/fundraisers';
-import { getDonationsForFundraiser } from '@/data/donations';
+import { getFundraisersByOrganizer, getAllFundraisers } from '@/data/fundraisers';
+import { getDonationsForFundraiser, getDonationsByUser } from '@/data/donations';
 import { getActivitiesForUser } from '@/data/activity';
+import { getCommunityById } from '@/data/communities';
 import { isCurrentUser } from '@/lib/auth';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScrollDepth } from '@/hooks/useScrollDepth';
@@ -17,7 +18,13 @@ import HighlightsSection from '@/components/profile/HighlightsSection';
 import ProfileActivityFeed from '@/components/profile/ProfileActivityFeed';
 import DiscoverPeople from '@/components/profile/DiscoverPeople';
 import MyFundraiserMetrics from '@/components/profile/MyFundraiserMetrics';
+import InterestsEditor from '@/components/profile/InterestsEditor';
+import MostViewedSection from '@/components/profile/MostViewedSection';
+import TopCauses from '@/components/profile/TopCauses';
+import UserCommunities from '@/components/profile/UserCommunities';
+import DonationsMade from '@/components/profile/DonationsMade';
 import AnalyticsDashboard from '@/components/analytics/AnalyticsDashboard';
+import type { Fundraiser } from '@/data/types';
 
 export default function ProfilePage() {
   const params = useParams();
@@ -32,9 +39,31 @@ export default function ProfilePage() {
   const fundraisers = user ? getFundraisersByOrganizer(user.id) : [];
   const activities = user ? getActivitiesForUser(user.id) : [];
   const suggestedUsers = getAllUsers().filter(u => u.id !== id).slice(0, 6);
+  const allFundraisers = getAllFundraisers();
 
-  // Gather donations for all of the user's fundraisers
-  const allDonations = fundraisers.flatMap(f => getDonationsForFundraiser(f.id));
+  // Donations received on this user's fundraisers
+  const donationsReceived = fundraisers.flatMap(f => getDonationsForFundraiser(f.id));
+
+  // Donations this user has made to others
+  const donationsMade = user ? getDonationsByUser(user.id) : [];
+
+  // Build a lookup map for fundraisers the user donated to
+  const fundraiserLookup = useMemo(() => {
+    const map: Record<string, Fundraiser> = {};
+    donationsMade.forEach(d => {
+      const f = allFundraisers.find(fr => fr.id === d.fundraiserId);
+      if (f) map[f.id] = f;
+    });
+    return map;
+  }, [donationsMade, allFundraisers]);
+
+  // Communities this user belongs to
+  const communities = useMemo(() => {
+    if (!user) return [];
+    return user.communityIds
+      .map(cid => getCommunityById(cid))
+      .filter(Boolean) as NonNullable<ReturnType<typeof getCommunityById>>[];
+  }, [user]);
 
   useEffect(() => {
     if (user) {
@@ -65,12 +94,40 @@ export default function ProfilePage() {
 
         {/* Show metrics dashboard only for the logged-in user's own profile */}
         {isOwner && fundraisers.length > 0 && (
-          <MyFundraiserMetrics fundraisers={fundraisers} donations={allDonations} />
+          <MyFundraiserMetrics fundraisers={fundraisers} donations={donationsReceived} />
         )}
 
-        <DiscoverPeople users={suggestedUsers} />
+        {/* User interests - only on own profile */}
+        {isOwner && (
+          <InterestsEditor />
+        )}
+
+        {/* Most viewed fundraisers/communities from feed - only own profile */}
+        {isOwner && (
+          <MostViewedSection />
+        )}
+
+        {/* Top Causes - visible on ALL profiles */}
+        <TopCauses
+          fundraisers={fundraisers}
+          donations={donationsMade}
+          allFundraisers={allFundraisers}
+        />
+
+        {/* Highlights - fundraisers this user organized */}
         <HighlightsSection fundraisers={fundraisers} />
+
+        {/* Donations this user has made to others */}
+        <DonationsMade donations={donationsMade} fundraiserLookup={fundraiserLookup} />
+
+        {/* Communities this user belongs to */}
+        <UserCommunities communities={communities} />
+
+        {/* Activity feed */}
         <ProfileActivityFeed activities={activities} />
+
+        {/* Discover other people */}
+        <DiscoverPeople users={suggestedUsers} />
       </div>
 
       <AnalyticsDashboard />

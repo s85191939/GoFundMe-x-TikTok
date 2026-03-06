@@ -113,7 +113,9 @@ export type AnalyticsEventType =
   | 'story_expand'
   | 'ai_story_generate'
   | 'ai_suggestion_click'
-  | 'fundraiser_card_click';
+  | 'fundraiser_card_click'
+  | 'feed_item_view'
+  | 'feed_scroll';
 
 export interface AIDonationSuggestion {
   amount: number;

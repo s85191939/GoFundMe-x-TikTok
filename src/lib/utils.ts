@@ -12,7 +12,7 @@ export function cn(...classes: (string | boolean | undefined | null)[]): string 
 export function getPercentage(raised: number, goal: number): number {
   if (goal <= 0) return 0;
   const pct = (raised / goal) * 100;
-  return Math.min(pct, 100);
+  return Math.min(Math.round(pct), 100);
 }
 
 /**

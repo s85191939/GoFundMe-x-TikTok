@@ -18,16 +18,10 @@ export default function Navbar() {
             {/* Nav links */}
             <div className="hidden md:flex items-center gap-6">
               <Link
-                href="/"
+                href="/discover"
                 className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
               >
                 Discover
-              </Link>
-              <Link
-                href="/community/community-1"
-                className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-              >
-                Communities
               </Link>
             </div>
           </div>

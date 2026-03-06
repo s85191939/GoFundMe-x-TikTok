@@ -89,7 +89,7 @@ export default function MyFundraiserMetrics({ fundraisers, donations }: MyFundra
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-gray-600">Overall Goal Progress</span>
-                <span className="font-semibold text-gray-900">{stats.completionRate.toFixed(1)}%</span>
+                <span className="font-semibold text-gray-900">{Math.round(stats.completionRate)}%</span>
               </div>
               <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
                 <div
@@ -185,7 +185,7 @@ export default function MyFundraiserMetrics({ fundraisers, donations }: MyFundra
                         style={{ width: `${d.percentage}%` }}
                       />
                     </div>
-                    <span className="text-xs text-gray-600 w-16 flex-shrink-0">{d.count} ({d.percentage.toFixed(0)}%)</span>
+                    <span className="text-xs text-gray-600 w-16 flex-shrink-0">{d.count} ({Math.round(d.percentage)}%)</span>
                   </div>
                 ))}
               </div>
@@ -195,7 +195,7 @@ export default function MyFundraiserMetrics({ fundraisers, donations }: MyFundra
             <div className="grid grid-cols-2 gap-4">
               <StatBox label="Avg Donation" value={formatCurrency(donorInsights.avgDonation)} />
               <StatBox label="Median Donation" value={formatCurrency(donorInsights.medianDonation)} />
-              <StatBox label="Anonymous Rate" value={`${(donorInsights.anonymousRate * 100).toFixed(0)}%`} />
+              <StatBox label="Anonymous Rate" value={`${Math.round(donorInsights.anonymousRate * 100)}%`} />
               <StatBox label="Peak Hour" value={donorInsights.peakDonationHour} />
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function MyFundraiserMetrics({ fundraisers, donations }: MyFundra
                     />
                   </div>
                   <span className="text-sm font-bold text-purple-700">
-                    {(platformInsights.successPrediction * 100).toFixed(0)}%
+                    {Math.round(platformInsights.successPrediction * 100)}%
                   </span>
                 </div>
                 <p className="text-xs text-gfm-gray mt-1">

@@ -1,4 +1,4 @@
-import type { Fundraiser } from './types';
+import type { Fundraiser, FundraiserCategory } from './types';
 
 export const fundraisers: Fundraiser[] = [
   {
@@ -147,6 +147,201 @@ Every donation, no matter how small, takes weight off our shoulders and lets us 
     isActive: true,
     donationIds: ['donation-23', 'donation-24', 'donation-25', 'donation-26', 'donation-27', 'donation-28'],
   },
+  // ===== New Fundraisers (6–12) =====
+  {
+    id: 'fundraiser-6',
+    title: 'Community Garden Revival',
+    slug: 'community-garden-revival',
+    heroImage: 'https://picsum.photos/seed/fundraiser-6/1200/600',
+    organizerId: 'user-1',
+    beneficiaryName: 'Neighbors United Community Garden',
+    beneficiaryType: 'nonprofit',
+    communityId: 'community-3',
+    category: 'community',
+    tags: ['garden', 'community', 'sustainability', 'food', 'neighborhood', 'green-space'],
+    story: `Our neighborhood lost its beloved community garden when the lot was sold to developers three years ago. For over a decade, that garden was more than just a place to grow vegetables. It was where retirees taught kids how to plant seeds, where immigrant families grew herbs from their home countries, and where neighbors who barely knew each other became lifelong friends.
+
+We have secured a new 0.4-acre lot just two blocks from the original site. The landowner has agreed to a 15-year lease at a nominal rate, but the lot needs significant work. The soil requires remediation and amendment, we need raised beds, a tool shed, a drip irrigation system, fencing, and accessible pathways for elderly and disabled gardeners.
+
+We are raising $8,000 to cover the full buildout. Every $200 funds one raised bed including soil, compost, and starter plants. A $500 donation covers the entire irrigation system. We already have 40 families signed up for plots and a waiting list of 25 more.
+
+This garden will also serve as an outdoor classroom for Jefferson Elementary, where our after-school program teaches kids about nutrition, sustainability, and where their food comes from. Let us bring this garden back to life together.`,
+    goalAmount: 8000,
+    raisedAmount: 3420,
+    donationCount: 4,
+    createdDate: '2025-10-15',
+    lastDonationDate: '2026-02-20',
+    isActive: true,
+    donationIds: ['donation-29', 'donation-30', 'donation-31', 'donation-32'],
+  },
+  {
+    id: 'fundraiser-7',
+    title: 'Youth Soccer League Equipment Fund',
+    slug: 'youth-soccer-league-equipment',
+    heroImage: 'https://picsum.photos/seed/fundraiser-7/1200/600',
+    organizerId: 'user-6',
+    beneficiaryName: 'Eastside Youth Soccer League',
+    beneficiaryType: 'nonprofit',
+    communityId: 'community-5',
+    category: 'sports',
+    tags: ['soccer', 'youth', 'sports', 'equipment', 'kids', 'recreation', 'league'],
+    story: `The Eastside Youth Soccer League has been giving kids ages 6 through 14 a place to play, learn teamwork, and stay active for the past five years. We serve over 120 kids across 8 teams, and we have never turned a child away for inability to pay registration fees.
+
+But our equipment is falling apart. We are down to 12 usable soccer balls for 120 kids. Our goals have bent poles and torn nets. Half our pinnies have holes in them. We practice on a field with no corner flags, no proper markings, and we have been borrowing cones from the local traffic department.
+
+We are raising $5,000 to properly outfit our league. This covers 40 match-quality soccer balls, 8 sets of goals with nets, training pinnies, corner flags, coaching equipment, a portable first aid station, and new uniforms for all 8 teams. We also want to fund referee training for four parent volunteers so our games can be properly officiated.
+
+Every kid deserves the chance to play sports regardless of their family income. Your donation keeps our fields full and our kids active.`,
+    goalAmount: 5000,
+    raisedAmount: 2100,
+    donationCount: 3,
+    createdDate: '2025-12-01',
+    lastDonationDate: '2026-02-15',
+    isActive: true,
+    donationIds: ['donation-33', 'donation-34', 'donation-35'],
+  },
+  {
+    id: 'fundraiser-8',
+    title: 'Memorial Fund for Officer Davis',
+    slug: 'memorial-fund-officer-davis',
+    heroImage: 'https://picsum.photos/seed/fundraiser-8/1200/600',
+    organizerId: 'user-8',
+    beneficiaryName: 'The Davis Family',
+    beneficiaryType: 'individual',
+    communityId: 'community-4',
+    category: 'memorial',
+    tags: ['memorial', 'police', 'family', 'support', 'community', 'first-responder'],
+    story: `On November 12th, 2025, our community lost one of its finest. Officer Michael Davis, a 14-year veteran of the Sacramento Police Department, passed away unexpectedly from a cardiac event while on duty. He was 42 years old.
+
+Mike was not just a cop. He was the guy who organized the annual block party, who coached Little League every spring, who stopped by the senior center every Friday to check on residents. He knew every shopkeeper by name. He once spent his own money to replace a kid's stolen bicycle. That was Mike.
+
+He leaves behind his wife Jennifer and their three children: Emma (14), Lucas (11), and baby Sophia (2). Jennifer has been a stay-at-home mom since Sophia was born, and the family is now facing the loss of their sole income during the most difficult time of their lives.
+
+This fund will help cover immediate expenses including funeral costs, mortgage payments for the next six months, and the children's school and activity fees. We are also setting aside a portion for a college fund for all three kids.
+
+The Sacramento PD family is contributing separately, but the community Mike served and loved deserves a chance to give back too. Let us take care of the family of a man who spent his career taking care of us.`,
+    goalAmount: 75000,
+    raisedAmount: 48200,
+    donationCount: 4,
+    createdDate: '2025-11-18',
+    lastDonationDate: '2026-03-01',
+    isActive: true,
+    donationIds: ['donation-36', 'donation-37', 'donation-38', 'donation-39'],
+  },
+  {
+    id: 'fundraiser-9',
+    title: 'Clean Water Initiative Expansion',
+    slug: 'clean-water-initiative-expansion',
+    heroImage: 'https://picsum.photos/seed/fundraiser-9/1200/600',
+    organizerId: 'user-1',
+    beneficiaryName: 'PureFlow Water Foundation',
+    beneficiaryType: 'nonprofit',
+    communityId: 'community-3',
+    category: 'nonprofit',
+    tags: ['water', 'nonprofit', 'clean-water', 'health', 'infrastructure', 'community'],
+    story: `Access to clean drinking water should not be a privilege. Yet in 2025, there are still communities right here in the United States where tap water is unsafe to drink. Our organization, PureFlow Water Foundation, has been installing point-of-use filtration systems in underserved communities since 2022.
+
+So far, we have installed 340 filtration units across 12 communities in rural Appalachia and the Mississippi Delta, providing clean water access to over 2,000 people. Each unit costs approximately $85 for hardware plus $30 per year for filter replacements, and they last 10 years with proper maintenance.
+
+We are raising funds to expand into three new communities that have reached out to us for help. Water testing in these areas has shown concerning levels of lead, PFAS compounds, and agricultural runoff contaminants. Families have been buying bottled water for years, spending up to $150 per month just to have safe drinking water.
+
+A $115 donation provides one family with a filtration unit plus the first year of filters. A $500 donation covers an entire block. The $15,000 goal will allow us to serve approximately 130 new households.
+
+Clean water changes everything. It means healthier kids, fewer medical bills, and the peace of mind that comes from knowing the water from your tap is safe.`,
+    goalAmount: 15000,
+    raisedAmount: 6800,
+    donationCount: 4,
+    createdDate: '2025-09-28',
+    lastDonationDate: '2026-02-28',
+    isActive: true,
+    donationIds: ['donation-40', 'donation-41', 'donation-42', 'donation-43'],
+  },
+  {
+    id: 'fundraiser-10',
+    title: 'Creative Arts After-School Program',
+    slug: 'creative-arts-after-school-program',
+    heroImage: 'https://picsum.photos/seed/fundraiser-10/1200/600',
+    organizerId: 'user-4',
+    beneficiaryName: 'Creative Futures Studio',
+    beneficiaryType: 'nonprofit',
+    communityId: 'community-6',
+    category: 'other',
+    tags: ['arts', 'after-school', 'music', 'painting', 'theater', 'youth', 'creative'],
+    story: `When budget cuts eliminated arts programs at three Chicago public schools last year, we saw the light go out of kids' eyes. The music room went silent. The art supplies gathered dust. The stage sat empty.
+
+Creative Futures Studio was born from a simple idea: every child deserves access to the arts regardless of whether their school can afford it. We run free after-school programs in music, visual arts, theater, and creative writing for students in grades 3 through 8.
+
+In our first year, we served 65 students across two locations using donated instruments and supplies. The results have been remarkable. Teachers report that our students show improved focus, higher attendance rates, and better emotional regulation. Parents tell us their kids are happier and more confident.
+
+We are raising $12,000 to expand to a third location and purchase proper equipment: 15 acoustic guitars, a classroom set of watercolor and acrylic supplies, a portable stage and lighting kit for theater productions, and 20 tablets loaded with music composition software.
+
+We also need to fund stipends for our teaching artists, many of whom are working professionals who volunteer their time but cannot sustain it without some compensation.
+
+Art is not a luxury. It is how kids learn to express themselves, process emotions, and discover who they are. Help us keep the lights on in the creative room.`,
+    goalAmount: 12000,
+    raisedAmount: 4500,
+    donationCount: 3,
+    createdDate: '2026-01-05',
+    lastDonationDate: '2026-03-02',
+    isActive: true,
+    donationIds: ['donation-44', 'donation-45', 'donation-46'],
+  },
+  {
+    id: 'fundraiser-11',
+    title: 'Neighborhood Food Bank Drive',
+    slug: 'neighborhood-food-bank-drive',
+    heroImage: 'https://picsum.photos/seed/fundraiser-11/1200/600',
+    organizerId: 'user-2',
+    beneficiaryName: 'Helping Hands Food Pantry',
+    beneficiaryType: 'charity',
+    communityId: 'community-3',
+    category: 'community',
+    tags: ['food-bank', 'hunger', 'community', 'pantry', 'meals', 'families'],
+    story: `Helping Hands Food Pantry has been serving the greater Houston area since 2019, but the demand has never been higher than it is right now. Post-hurricane, many families who were already food-insecure are now in crisis. Our weekly distribution numbers have tripled from 120 families to over 360.
+
+We operate out of a converted warehouse that a local business lets us use rent-free. Our team of 45 volunteers sorts, packs, and distributes food every Tuesday, Thursday, and Saturday. We partner with local grocery stores, restaurants, and farms to rescue food that would otherwise go to waste.
+
+But rescued food alone is not enough. We need to purchase staples like rice, beans, canned proteins, cooking oil, baby formula, and fresh produce to fill the gaps. We also need to replace our aging refrigeration unit, which broke down twice last month.
+
+Every $25 provides a week of groceries for one family. Every $100 feeds four families. The $20,000 goal covers three months of food purchasing plus the new refrigeration unit.
+
+No one in our community should go to bed hungry. Not while we have the power to change that.`,
+    goalAmount: 20000,
+    raisedAmount: 11250,
+    donationCount: 4,
+    createdDate: '2026-02-01',
+    lastDonationDate: '2026-03-04',
+    isActive: true,
+    donationIds: ['donation-47', 'donation-48', 'donation-49', 'donation-50'],
+  },
+  {
+    id: 'fundraiser-12',
+    title: 'Veterans Support & Transition Aid',
+    slug: 'veterans-support-transition-aid',
+    heroImage: 'https://picsum.photos/seed/fundraiser-12/1200/600',
+    organizerId: 'user-10',
+    beneficiaryName: 'Vets Forward Initiative',
+    beneficiaryType: 'nonprofit',
+    communityId: 'community-4',
+    category: 'nonprofit',
+    tags: ['veterans', 'military', 'transition', 'support', 'housing', 'employment', 'mental-health'],
+    story: `After 20 years in the Army, I thought the hardest part was over when I came home. I was wrong. The transition from military to civilian life nearly broke me. I struggled with PTSD, could not find a job that matched my skills, and felt completely disconnected from the world I had served to protect.
+
+Vets Forward was created because no veteran should have to navigate that transition alone. We provide three core services: job placement assistance with resume workshops and interview coaching, temporary housing support for veterans facing homelessness, and peer mentoring that connects newly transitioned vets with those who have successfully made the adjustment.
+
+In two years, we have helped 89 veterans find stable employment, provided transitional housing to 34 individuals, and our peer mentoring program has 60 active pairings. Our success rate for job placement within 90 days is 78 percent.
+
+We are raising $30,000 to hire a full-time case manager, expand our transitional housing from 8 to 14 units, and launch a new mental health support group facilitated by licensed therapists who specialize in veteran issues.
+
+These men and women put their lives on the line for us. The least we can do is make sure they have a soft landing when they come home.`,
+    goalAmount: 30000,
+    raisedAmount: 15800,
+    donationCount: 3,
+    createdDate: '2025-10-20',
+    lastDonationDate: '2026-02-22',
+    isActive: true,
+    donationIds: ['donation-51', 'donation-52', 'donation-53'],
+  },
 ];
 
 export function getFundraiserById(id: string): Fundraiser | undefined {
@@ -155,6 +350,10 @@ export function getFundraiserById(id: string): Fundraiser | undefined {
 
 export function getFundraisersByOrganizer(userId: string): Fundraiser[] {
   return fundraisers.filter((f) => f.organizerId === userId);
+}
+
+export function getFundraisersByCategory(category: FundraiserCategory): Fundraiser[] {
+  return fundraisers.filter((f) => f.category === category);
 }
 
 export function getAllFundraisers(): Fundraiser[] {

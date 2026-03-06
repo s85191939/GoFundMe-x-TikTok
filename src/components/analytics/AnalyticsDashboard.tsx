@@ -9,7 +9,7 @@ import { getPerformanceMetrics } from '@/hooks/usePerformance';
 // Types
 // ---------------------------------------------------------------------------
 
-type TabId = 'overview' | 'funnel' | 'engagement' | 'revenue' | 'performance';
+type TabId = 'overview' | 'funnel' | 'engagement' | 'revenue' | 'performance' | 'feed';
 
 interface TabDef {
   id: TabId;
@@ -20,6 +20,7 @@ const TABS: TabDef[] = [
   { id: 'overview', label: 'Overview' },
   { id: 'funnel', label: 'Funnel' },
   { id: 'engagement', label: 'Engagement' },
+  { id: 'feed', label: 'Feed' },
   { id: 'revenue', label: 'Revenue' },
   { id: 'performance', label: 'Performance' },
 ];
@@ -35,7 +36,7 @@ function fmtNum(n: number): string {
 }
 
 function fmtPct(n: number): string {
-  return `${(n * 100).toFixed(1)}%`;
+  return `${Math.round(n * 100)}%`;
 }
 
 function fmtDuration(seconds: number): string {
@@ -617,6 +618,179 @@ function PerformanceTab({ dashboard }: { dashboard: BusinessDashboard }) {
   );
 }
 
+function FeedTab() {
+  const events = analytics.getEvents();
+  const feedViews = events.filter((e) => e.type === 'feed_item_view');
+  const feedScrolls = events.filter((e) => e.type === 'feed_scroll');
+
+  // Time spent per category
+  const categoryTime: Record<string, { totalMs: number; views: number }> = {};
+  feedViews.forEach((e) => {
+    const cat = (e.data?.category as string) || 'unknown';
+    if (!categoryTime[cat]) categoryTime[cat] = { totalMs: 0, views: 0 };
+    categoryTime[cat].totalMs += (e.data?.timeSpentMs as number) || 0;
+    categoryTime[cat].views += 1;
+  });
+
+  // Sort categories by total time spent
+  const sortedCategories = Object.entries(categoryTime)
+    .sort(([, a], [, b]) => b.totalMs - a.totalMs);
+  const maxCatTime = sortedCategories.length > 0 ? sortedCategories[0][1].totalMs : 1;
+
+  // Most viewed items
+  const itemViews: Record<string, { id: string; type: string; totalMs: number; views: number }> = {};
+  feedViews.forEach((e) => {
+    const id = (e.data?.itemId as string) || 'unknown';
+    const type = (e.data?.itemType as string) || 'unknown';
+    if (!itemViews[id]) itemViews[id] = { id, type, totalMs: 0, views: 0 };
+    itemViews[id].totalMs += (e.data?.timeSpentMs as number) || 0;
+    itemViews[id].views += 1;
+  });
+
+  const topItems = Object.values(itemViews)
+    .sort((a, b) => b.totalMs - a.totalMs)
+    .slice(0, 5);
+
+  // Total feed session time
+  const totalFeedTimeMs = feedViews.reduce((sum, e) => sum + ((e.data?.timeSpentMs as number) || 0), 0);
+  const avgTimePerItem = feedViews.length > 0 ? totalFeedTimeMs / feedViews.length : 0;
+
+  // Scroll velocity (scrolls per minute)
+  const feedPageViews = events.filter(
+    (e) => e.type === 'page_view' && (e.data?.viewMode === 'feed' || e.data?.page === 'discover')
+  );
+  const sessionStart = feedPageViews.length > 0 ? feedPageViews[0].timestamp : Date.now();
+  const sessionMinutes = Math.max((Date.now() - sessionStart) / 60000, 0.1);
+  const scrollVelocity = feedScrolls.length / sessionMinutes;
+
+  // Category emojis
+  const catEmoji: Record<string, string> = {
+    emergency: '🚨', medical: '🏥', education: '📚', nonprofit: '💛',
+    community: '🏘️', animals: '🐾', environment: '🌿', memorial: '🕊️',
+    sports: '⚽', other: '✨',
+  };
+
+  return (
+    <div className="space-y-4">
+      {/* Feed Overview */}
+      <div className="bg-gray-800/40 rounded-xl p-3">
+        <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Feed Engagement</p>
+        <div className="grid grid-cols-2 gap-2">
+          <StatCard
+            label="Items Viewed"
+            value={feedViews.length}
+            valueColor="text-emerald-400"
+          />
+          <StatCard
+            label="Scroll Events"
+            value={feedScrolls.length}
+            valueColor="text-sky-400"
+          />
+          <StatCard
+            label="Total Feed Time"
+            value={fmtDuration(totalFeedTimeMs / 1000)}
+            valueColor="text-purple-400"
+          />
+          <StatCard
+            label="Avg Time / Item"
+            value={fmtDuration(avgTimePerItem / 1000)}
+            valueColor="text-amber-400"
+          />
+        </div>
+      </div>
+
+      {/* Scroll Velocity */}
+      <div className="bg-gray-800/40 rounded-xl p-3">
+        <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Scroll Velocity</p>
+        <div className="flex items-end gap-3">
+          <p className="text-2xl font-bold text-sky-400">{scrollVelocity.toFixed(1)}</p>
+          <p className="text-xs text-gray-400 pb-0.5">scrolls/min</p>
+        </div>
+        <p className="text-[10px] text-gray-500 mt-1">
+          {scrollVelocity > 10 ? 'Fast scrolling — users may be skimming' :
+           scrollVelocity > 3 ? 'Normal pace — engaged browsing' :
+           scrollVelocity > 0 ? 'Slow scrolling — deep engagement' : 'No scroll data yet'}
+        </p>
+      </div>
+
+      {/* Category Interest */}
+      <div className="bg-gray-800/40 rounded-xl p-3">
+        <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-3">Category Interest (by time)</p>
+        {sortedCategories.length > 0 ? (
+          <div className="space-y-2">
+            {sortedCategories.map(([cat, data]) => {
+              const pct = maxCatTime > 0 ? (data.totalMs / maxCatTime) * 100 : 0;
+              return (
+                <div key={cat} className="mb-2">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-gray-300">
+                      {catEmoji[cat] || '📌'} <span className="capitalize">{cat}</span>
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] text-gray-400">{data.views} views</span>
+                      <span className="text-xs font-semibold text-white">{fmtDuration(data.totalMs / 1000)}</span>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500"
+                      style={{ width: `${Math.max(pct, 4)}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p className="text-xs text-gray-500">Use the Feed view to generate data</p>
+        )}
+      </div>
+
+      {/* Top Items by Dwell Time */}
+      <div className="bg-gray-800/40 rounded-xl p-3">
+        <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Top Items (by dwell time)</p>
+        {topItems.length > 0 ? (
+          <div className="space-y-2">
+            {topItems.map((item, i) => (
+              <div key={item.id} className="flex items-center gap-2 py-1 border-b border-gray-800/50 last:border-0">
+                <span className="text-[10px] text-gray-500 w-4">{i + 1}.</span>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded ${
+                  item.type === 'fundraiser' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-purple-500/20 text-purple-400'
+                }`}>
+                  {item.type === 'fundraiser' ? '💰' : '👥'}
+                </span>
+                <span className="text-xs text-gray-300 flex-1 truncate">{item.id}</span>
+                <span className="text-xs font-semibold text-white">{fmtDuration(item.totalMs / 1000)}</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-xs text-gray-500">Use the Feed view to generate data</p>
+        )}
+      </div>
+
+      {/* Personalization Signal */}
+      {sortedCategories.length > 0 && (
+        <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 rounded-xl p-3 border border-purple-500/20">
+          <p className="text-[10px] uppercase tracking-wider text-purple-300 mb-2">🤖 AI Personalization Signal</p>
+          <p className="text-xs text-gray-300">
+            Based on feed behavior, this user shows strongest interest in{' '}
+            <span className="text-purple-300 font-semibold capitalize">
+              {sortedCategories[0]?.[0] || 'N/A'}
+            </span>
+            {sortedCategories[1] && (
+              <> and <span className="text-purple-300 font-semibold capitalize">{sortedCategories[1][0]}</span></>
+            )}.
+          </p>
+          <p className="text-[10px] text-gray-500 mt-1.5">
+            Recommendation: Prioritize {sortedCategories[0]?.[0]} fundraisers in their feed and email digest.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Main Dashboard Component
 // ---------------------------------------------------------------------------
@@ -696,6 +870,7 @@ export default function AnalyticsDashboard() {
             {activeTab === 'overview' && <OverviewTab dashboard={dashboard} />}
             {activeTab === 'funnel' && <FunnelTab dashboard={dashboard} />}
             {activeTab === 'engagement' && <EngagementTab dashboard={dashboard} />}
+            {activeTab === 'feed' && <FeedTab />}
             {activeTab === 'revenue' && <RevenueTab dashboard={dashboard} />}
             {activeTab === 'performance' && <PerformanceTab dashboard={dashboard} />}
           </div>

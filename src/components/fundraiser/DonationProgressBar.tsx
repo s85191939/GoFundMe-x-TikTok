@@ -11,7 +11,7 @@ interface DonationProgressBarProps {
 
 export default function DonationProgressBar({ raised, goal, donationCount }: DonationProgressBarProps) {
   const [width, setWidth] = useState(0);
-  const percentage = Math.min((raised / goal) * 100, 100);
+  const percentage = Math.min(Math.round((raised / goal) * 100), 100);
 
   useEffect(() => {
     const timer = setTimeout(() => setWidth(percentage), 100);

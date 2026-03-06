@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllFundraisers } from '@/data/fundraisers';
 import { getAllCommunities } from '@/data/communities';
 import { donations } from '@/data/donations';
@@ -15,6 +16,9 @@ export default function HomePage() {
   const totalVisitors = users.length * 47; // simulated visitor count
   const totalCommunityMembers = communities.reduce((sum, c) => sum + c.followerCount, 0);
 
+  // Show 6 featured fundraisers
+  const featuredFundraisers = fundraisers.slice(0, 6);
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 space-y-16">
       {/* Hero */}
@@ -27,7 +31,7 @@ export default function HomePage() {
         </p>
         <div className="flex justify-center gap-3 pt-4">
           <Link
-            href="/fundraiser/fundraiser-1"
+            href="/discover"
             className="bg-gfm-green hover:bg-gfm-green-dark text-white font-semibold rounded-full px-8 py-3 transition-colors"
           >
             Explore Fundraisers
@@ -55,9 +59,15 @@ export default function HomePage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-gray-900">Featured Fundraisers</h2>
+          <Link
+            href="/discover"
+            className="text-sm font-medium text-gfm-green hover:text-gfm-green-dark transition-colors"
+          >
+            View All →
+          </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {fundraisers.map((fundraiser) => (
+          {featuredFundraisers.map((fundraiser) => (
             <FundraiserCard key={fundraiser.id} fundraiser={fundraiser} />
           ))}
         </div>
@@ -65,20 +75,34 @@ export default function HomePage() {
 
       {/* Communities */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-gray-900">Communities</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-gray-900">Communities</h2>
+          <Link
+            href="/communities"
+            className="text-sm font-medium text-gfm-green hover:text-gfm-green-dark transition-colors"
+          >
+            View All →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {communities.map((community) => (
             <Link
               key={community.id}
               href={`/community/${community.id}`}
-              className="flex items-center gap-4 p-6 rounded-xl border border-gray-200 hover:border-gfm-green/30 hover:shadow-md transition-all card-hover"
+              className="flex items-center gap-4 p-5 rounded-xl border border-gray-200 hover:border-gfm-green/30 hover:shadow-md transition-all card-hover"
             >
-              <div className="w-16 h-16 rounded-full bg-gfm-green flex items-center justify-center text-white font-bold text-2xl flex-shrink-0">
-                {community.name.charAt(0)}
+              <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                <Image
+                  src={community.avatarImage}
+                  alt={community.name}
+                  width={56}
+                  height={56}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              <div>
-                <h3 className="font-bold text-gray-900 text-lg">{community.name}</h3>
-                <p className="text-sm text-gfm-gray">{community.tagline}</p>
+              <div className="min-w-0">
+                <h3 className="font-bold text-gray-900">{community.name}</h3>
+                <p className="text-sm text-gfm-gray truncate">{community.tagline}</p>
                 <p className="text-xs text-gfm-gray mt-1">
                   {community.followerCount} followers &bull; {community.activeFundraiserCount} fundraisers
                 </p>
