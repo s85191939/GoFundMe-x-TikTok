@@ -1,4 +1,5 @@
 import { AIDonationSuggestion, Fundraiser, FundraiserCategory } from '@/data/types';
+import { enhanceStoryWithAI, isOpenRouterAvailable, type AIModel } from './openrouter';
 
 // ─── Enhancement Configuration ──────────────────────────────
 
@@ -9,6 +10,8 @@ export interface StoryEnhancementConfig {
   focus: ('emotional_hook' | 'specific_impact' | 'urgency' | 'social_proof' | 'transparency')[];
   /** How much to transform (light touch vs full rewrite) */
   intensity: 'light' | 'moderate' | 'full';
+  /** AI model to use (requires OpenRouter API key) */
+  model?: AIModel;
 }
 
 export const DEFAULT_ENHANCEMENT_CONFIG: StoryEnhancementConfig = {
@@ -114,8 +117,21 @@ export async function generateEnhancedStory(
   category: FundraiserCategory,
   title: string,
   config: StoryEnhancementConfig = DEFAULT_ENHANCEMENT_CONFIG,
-): Promise<string> {
-  // Simulate AI processing time (scales with intensity)
+): Promise<{ text: string; usedAI: boolean; model?: string }> {
+  // Try OpenRouter first if a model is selected and API key exists
+  if (config.model && isOpenRouterAvailable()) {
+    try {
+      const result = await enhanceStoryWithAI(
+        story, title, category, config.tone, config.focus, config.model,
+      );
+      return { text: result.enhanced, usedAI: true, model: result.model };
+    } catch (err) {
+      console.warn('OpenRouter failed, falling back to templates:', err);
+      // Fall through to template-based enhancement
+    }
+  }
+
+  // Template-based fallback
   const delay = config.intensity === 'light' ? 1000 : config.intensity === 'moderate' ? 2000 : 3000;
   await new Promise((resolve) => setTimeout(resolve, delay));
 
@@ -149,7 +165,7 @@ export async function generateEnhancedStory(
     enhanced += `\n\n---\n\nHow You Can Help\n\nDonate: Every dollar counts. Choose an amount that feels right for you — there is no gift too small.\n\nShare: Share this page on social media, text it to friends, or email it to family. Visibility is one of the most powerful ways to help.\n\nFollow: Follow this campaign for updates and to see the direct impact of your generosity.\n\nThank you for being the kind of person who cares enough to read this far. That already tells us something beautiful about who you are. Now let us turn that compassion into action.`;
   }
 
-  return enhanced;
+  return { text: enhanced, usedAI: false };
 }
 
 /**

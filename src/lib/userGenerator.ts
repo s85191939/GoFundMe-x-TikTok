@@ -10,21 +10,24 @@ import type { User } from '@/data/types';
 
 // ─── Name Pools ─────────────────────────────────────────────
 
-const FIRST_NAMES = [
-  'Sophia', 'Liam', 'Olivia', 'Noah', 'Emma', 'Jackson', 'Ava', 'Aiden',
-  'Isabella', 'Lucas', 'Mia', 'Ethan', 'Harper', 'Mason', 'Amelia', 'Logan',
-  'Evelyn', 'Alexander', 'Abigail', 'Sebastian', 'Ella', 'Mateo', 'Scarlett',
-  'Daniel', 'Grace', 'Henry', 'Chloe', 'Owen', 'Victoria', 'Samuel',
-  'Riley', 'Jack', 'Aria', 'Benjamin', 'Luna', 'Leo', 'Zoey', 'Jayden',
-  'Nora', 'Carter', 'Lily', 'Julian', 'Hannah', 'Gabriel', 'Layla',
-  'Isaac', 'Ellie', 'Lincoln', 'Penelope', 'Ryan', 'Camila', 'Nathan',
-  'Aurora', 'Caleb', 'Savannah', 'Adrian', 'Audrey', 'Miles', 'Brooklyn',
-  'Dominic', 'Bella', 'Jeremiah', 'Claire', 'Josiah', 'Skylar', 'Andrew',
-  'Paisley', 'Thomas', 'Naomi', 'Charles', 'Eliana', 'Christopher', 'Elena',
-  'Ezra', 'Aaliyah', 'Colton', 'Maya', 'Maverick', 'Madeline', 'Ryder',
-  'Stella', 'Cooper', 'Hazel', 'Roman', 'Aurora', 'Kai', 'Violet', 'Axel',
-  'Willow', 'Brooks', 'Emilia', 'Jaxon', 'Ivy', 'Asher', 'Kinsley',
-  'Derek', 'Priya', 'Tariq', 'Mei', 'Deshawn', 'Fatima',
+const FEMALE_FIRST_NAMES = [
+  'Sophia', 'Olivia', 'Emma', 'Ava', 'Isabella', 'Mia', 'Harper', 'Amelia',
+  'Evelyn', 'Abigail', 'Ella', 'Scarlett', 'Grace', 'Chloe', 'Victoria',
+  'Aria', 'Luna', 'Zoey', 'Nora', 'Lily', 'Hannah', 'Layla', 'Ellie',
+  'Penelope', 'Camila', 'Aurora', 'Savannah', 'Audrey', 'Brooklyn', 'Bella',
+  'Claire', 'Skylar', 'Paisley', 'Naomi', 'Eliana', 'Elena', 'Aaliyah',
+  'Maya', 'Madeline', 'Stella', 'Hazel', 'Violet', 'Willow', 'Emilia',
+  'Ivy', 'Kinsley', 'Priya', 'Mei', 'Fatima', 'Riley',
+];
+
+const MALE_FIRST_NAMES = [
+  'Liam', 'Noah', 'Jackson', 'Aiden', 'Lucas', 'Ethan', 'Mason', 'Logan',
+  'Alexander', 'Sebastian', 'Mateo', 'Daniel', 'Henry', 'Owen', 'Samuel',
+  'Jack', 'Benjamin', 'Leo', 'Jayden', 'Carter', 'Julian', 'Gabriel',
+  'Isaac', 'Lincoln', 'Ryan', 'Nathan', 'Caleb', 'Adrian', 'Miles',
+  'Dominic', 'Jeremiah', 'Josiah', 'Andrew', 'Thomas', 'Charles',
+  'Christopher', 'Ezra', 'Colton', 'Maverick', 'Ryder', 'Cooper', 'Roman',
+  'Kai', 'Axel', 'Brooks', 'Jaxon', 'Asher', 'Derek', 'Tariq', 'Deshawn',
 ];
 
 const LAST_NAMES = [
@@ -256,10 +259,17 @@ export function generateUsers(count: number, seed?: number): User[] {
     generatedCount++;
     const id = `gen-user-${generatedCount}`;
 
-    const firstName = pick(FIRST_NAMES, rand);
+    // Pick gender first, then matching name and portrait
+    const isFemale = rand() < 0.5;
+    const firstName = isFemale ? pick(FEMALE_FIRST_NAMES, rand) : pick(MALE_FIRST_NAMES, rand);
     const lastName = pick(LAST_NAMES, rand);
     const name = `${firstName} ${lastName}`;
     const location = pick(LOCATIONS, rand);
+
+    // Gender-appropriate portrait from randomuser.me (0-99 available per gender)
+    const portraitNum = Math.floor(rand() * 100);
+    const portraitGender = isFemale ? 'women' : 'men';
+    const avatar = `https://randomuser.me/api/portraits/${portraitGender}/${portraitNum}.jpg`;
 
     // Pick a primary vibe profile (determines bio + interests)
     const profile = pick(VIBE_PROFILES, rand);
@@ -285,7 +295,7 @@ export function generateUsers(count: number, seed?: number): User[] {
     users.push({
       id,
       name,
-      avatar: `https://picsum.photos/seed/${id}/200/200`,
+      avatar,
       bio,
       location,
       joinedDate,

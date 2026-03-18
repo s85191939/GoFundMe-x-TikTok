@@ -8,6 +8,7 @@ export interface SpotlightDonation {
   donation: Donation;
   donorId: string;
   donorName: string;
+  donorAvatar: string;
   donorLocation: string;
   donorVerified: boolean;
   coordinates: Coordinates;
@@ -30,6 +31,7 @@ const spotlightPool: SpotlightDonation[] = donations
       donation: d,
       donorId: d.donorId!,
       donorName: d.donorName,
+      donorAvatar: user.avatar,
       donorLocation: user.location,
       donorVerified: user.isVerified,
       coordinates: coords,

@@ -6,7 +6,7 @@ export const users: User[] = [
   {
     id: 'user-1',
     name: 'Marissa Chen',
-    avatar: 'https://picsum.photos/seed/user-1/200/200',
+    avatar: 'https://randomuser.me/api/portraits/women/34.jpg',
     bio: 'Environmental scientist and wildfire safety advocate. Passionate about leveraging technology to protect communities from natural disasters.',
     location: 'Santa Rosa, CA',
     joinedDate: '2024-03-15',
@@ -19,7 +19,7 @@ export const users: User[] = [
   {
     id: 'user-2',
     name: 'David Okonkwo',
-    avatar: 'https://picsum.photos/seed/user-2/200/200',
+    avatar: 'https://randomuser.me/api/portraits/men/81.jpg',
     bio: 'Community organizer and disaster relief coordinator. I believe in the power of people coming together in times of crisis.',
     location: 'Houston, TX',
     joinedDate: '2023-11-02',
@@ -32,7 +32,7 @@ export const users: User[] = [
   {
     id: 'user-3',
     name: 'Sarah Mitchell',
-    avatar: 'https://picsum.photos/seed/user-3/200/200',
+    avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
     bio: 'Veterinary technician and lifelong animal lover. Dedicated to giving every animal a second chance at a happy life.',
     location: 'Portland, OR',
     joinedDate: '2024-01-20',
@@ -45,7 +45,7 @@ export const users: User[] = [
   {
     id: 'user-4',
     name: 'James Nguyen',
-    avatar: 'https://picsum.photos/seed/user-4/200/200',
+    avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
     bio: 'Retired teacher turned education advocate. Every child deserves access to quality education regardless of their background.',
     location: 'Chicago, IL',
     joinedDate: '2024-06-08',
@@ -58,7 +58,7 @@ export const users: User[] = [
   {
     id: 'user-5',
     name: 'Rachel Torres',
-    avatar: 'https://picsum.photos/seed/user-5/200/200',
+    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
     bio: 'Andy\'s mom. Fighting every day to make sure he gets the treatment he needs. Grateful for every bit of support from our community.',
     location: 'Denver, CO',
     joinedDate: '2025-01-12',
@@ -71,7 +71,7 @@ export const users: User[] = [
   {
     id: 'user-6',
     name: 'Kevin Park',
-    avatar: 'https://picsum.photos/seed/user-6/200/200',
+    avatar: 'https://randomuser.me/api/portraits/men/58.jpg',
     bio: 'Software engineer who believes in giving back. Small donations add up to big changes.',
     location: 'San Francisco, CA',
     joinedDate: '2024-05-19',
@@ -84,7 +84,7 @@ export const users: User[] = [
   {
     id: 'user-7',
     name: 'Emily Rodriguez',
-    avatar: 'https://picsum.photos/seed/user-7/200/200',
+    avatar: 'https://randomuser.me/api/portraits/women/21.jpg',
     bio: 'Nurse practitioner and mother of two. I donate because I know how much a helping hand can mean during tough times.',
     location: 'Austin, TX',
     joinedDate: '2024-08-03',
@@ -97,7 +97,7 @@ export const users: User[] = [
   {
     id: 'user-8',
     name: 'Marcus Johnson',
-    avatar: 'https://picsum.photos/seed/user-8/200/200',
+    avatar: 'https://randomuser.me/api/portraits/men/45.jpg',
     bio: 'Former firefighter, now a full-time dad. I know firsthand how devastating wildfires can be and support every effort to help.',
     location: 'Sacramento, CA',
     joinedDate: '2023-09-14',
@@ -110,7 +110,7 @@ export const users: User[] = [
   {
     id: 'user-9',
     name: 'Aisha Patel',
-    avatar: 'https://picsum.photos/seed/user-9/200/200',
+    avatar: 'https://randomuser.me/api/portraits/women/76.jpg',
     bio: 'Philanthropist and animal rescue volunteer. My three rescue dogs are proof that every animal deserves love.',
     location: 'Seattle, WA',
     joinedDate: '2024-02-28',
@@ -123,7 +123,7 @@ export const users: User[] = [
   {
     id: 'user-10',
     name: 'Thomas Wright',
-    avatar: 'https://picsum.photos/seed/user-10/200/200',
+    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     bio: 'Small business owner passionate about community support. When neighbors help neighbors, amazing things happen.',
     location: 'Nashville, TN',
     joinedDate: '2024-04-11',

@@ -47,13 +47,11 @@ function createPopupContent(spotlight: SpotlightDonation) {
       box-shadow: 0 0 20px rgba(0, 185, 100, 0.15);
     ">
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-        <div style="
+        <img src="${spotlight.donorAvatar}" alt="${spotlight.donorName}" style="
           width: 40px; height: 40px; border-radius: 50%;
-          background: linear-gradient(135deg, #00b964, #00d474);
-          display: flex; align-items: center; justify-content: center;
-          font-weight: bold; color: white; font-size: 16px;
-          flex-shrink: 0;
-        ">${spotlight.donorName.charAt(0)}</div>
+          object-fit: cover; flex-shrink: 0;
+          border: 2px solid #00b964;
+        " onerror="this.style.display='none'" />
         <div>
           <a href="/profile/${spotlight.donorId}" style="color: white; font-weight: 600; font-size: 15px; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 4px;" onmouseover="this.style.color='#00b964'" onmouseout="this.style.color='white'">${spotlight.donorName}${spotlight.donorVerified ? '<svg width="16" height="16" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M12 1L9.5 3.5 6 3l-.5 3.5L2 9l1.5 2.5L2 14l3.5 2.5L6 20l3.5-.5L12 22l2.5-2.5L18 20l.5-3.5L22 14l-1.5-2.5L22 9l-3.5-2.5L18 3l-3.5.5L12 1z" fill="#4A90D9"/><path d="M10 15.17l-3.17-3.17 1.41-1.41L10 12.34l5.66-5.66 1.41 1.41L10 15.17z" fill="white"/></svg>' : ''}</a>
           <div style="color: #9ca3af; font-size: 12px;">${spotlight.donorLocation}</div>
