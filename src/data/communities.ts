@@ -147,10 +147,33 @@ export const communities: Community[] = [
   },
 ];
 
+// ─── Registry (Map-based for dynamic communities) ───────────
+
+const communityRegistry = new Map<string, Community>();
+
+// Seed the registry with static communities
+for (const c of communities) {
+  communityRegistry.set(c.id, c);
+}
+
 export function getCommunityById(id: string): Community | undefined {
-  return communities.find((c) => c.id === id);
+  return communityRegistry.get(id);
 }
 
 export function getAllCommunities(): Community[] {
-  return communities;
+  return Array.from(communityRegistry.values());
+}
+
+export function registerCommunity(community: Community): void {
+  communityRegistry.set(community.id, community);
+}
+
+export function registerCommunities(newCommunities: Community[]): void {
+  for (const c of newCommunities) {
+    communityRegistry.set(c.id, c);
+  }
+}
+
+export function getCommunityCount(): number {
+  return communityRegistry.size;
 }

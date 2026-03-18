@@ -1,15 +1,18 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { formatCurrency } from '@/lib/formatters';
+import { getPersonalizedToastDonation } from '@/lib/socialProof';
+import type { Donation } from '@/data/types';
 
 interface SocialProofToastProps {
-  donations: Array<{ donorName: string; amount: number; createdDate: string }>;
+  donations: Donation[];
   fundraiserTitle: string;
 }
 
 interface ToastState {
-  donation: { donorName: string; amount: number; createdDate: string };
+  donation: Donation;
+  personalizedMessage?: string;
   visible: boolean;
 }
 
@@ -17,10 +20,16 @@ export default function SocialProofToast({ donations, fundraiserTitle }: SocialP
   const [toast, setToast] = useState<ToastState | null>(null);
   const [toastsShown, setToastsShown] = useState(0);
 
+  // Try to get a personalized toast based on user similarity
+  const personalizedToast = useMemo(
+    () => getPersonalizedToastDonation(donations),
+    [donations]
+  );
+
   const showToast = useCallback(
-    (donation: { donorName: string; amount: number; createdDate: string }) => {
+    (donation: Donation, personalizedMessage?: string) => {
       // Slide in
-      setToast({ donation, visible: true });
+      setToast({ donation, personalizedMessage, visible: true });
 
       // Slide out after 4 seconds
       const hideTimeout = setTimeout(() => {
@@ -55,13 +64,20 @@ export default function SocialProofToast({ donations, fundraiserTitle }: SocialP
     // Initial delay: random 3-8 seconds
     const initialDelay = 3000 + Math.random() * 5000;
     let currentTimeout: NodeJS.Timeout;
+    let usedPersonalized = false;
 
     const scheduleToast = (delay: number) => {
       currentTimeout = setTimeout(() => {
         if (toastsShown >= 3) return;
 
-        const donation = getRandomDonation();
-        showToast(donation);
+        // Use personalized toast for the first one if available
+        if (!usedPersonalized && personalizedToast) {
+          usedPersonalized = true;
+          showToast(personalizedToast.donation, personalizedToast.personalizedMessage);
+        } else {
+          const donation = getRandomDonation();
+          showToast(donation);
+        }
         setToastsShown((prev) => prev + 1);
 
         // Schedule next toast after 15-30 seconds (toast display time + gap)
@@ -73,7 +89,7 @@ export default function SocialProofToast({ donations, fundraiserTitle }: SocialP
     scheduleToast(initialDelay);
 
     return () => clearTimeout(currentTimeout);
-  }, [donations, toastsShown, showToast]);
+  }, [donations, toastsShown, showToast, personalizedToast]);
 
   if (!toast) return null;
 
@@ -95,15 +111,24 @@ export default function SocialProofToast({ donations, fundraiserTitle }: SocialP
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-gray-800">
-            <span className="font-semibold">{toast.donation.donorName}</span>{' '}
-            donated{' '}
-            <span className="font-semibold text-green-600">
-              {formatCurrency(toast.donation.amount)}
-            </span>{' '}
-            to{' '}
-            <span className="font-medium truncate">{fundraiserTitle}</span>
-          </p>
+          {toast.personalizedMessage ? (
+            <p className="text-sm text-gray-800">
+              <span className="font-semibold text-green-600">{toast.personalizedMessage}</span>
+              <span className="block text-xs text-gray-500 mt-0.5">
+                to {fundraiserTitle}
+              </span>
+            </p>
+          ) : (
+            <p className="text-sm text-gray-800">
+              <span className="font-semibold">{toast.donation.donorName}</span>{' '}
+              donated{' '}
+              <span className="font-semibold text-green-600">
+                {formatCurrency(toast.donation.amount)}
+              </span>{' '}
+              to{' '}
+              <span className="font-medium truncate">{fundraiserTitle}</span>
+            </p>
+          )}
         </div>
 
         {/* Dismiss button */}

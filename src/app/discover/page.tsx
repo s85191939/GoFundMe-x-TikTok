@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
-import { getAllFundraisers } from '@/data/fundraisers';
-import { getAllCommunities } from '@/data/communities';
-import DiscoverFeed from '@/components/discover/DiscoverFeed';
+import dynamic from 'next/dynamic';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScrollDepth } from '@/hooks/useScrollDepth';
 import { useTimeOnPage } from '@/hooks/useTimeOnPage';
 import { usePerformance } from '@/hooks/usePerformance';
 import AnalyticsDashboard from '@/components/analytics/AnalyticsDashboard';
+
+const TikTokFeed = dynamic(() => import('@/components/discover/TikTokFeed'), { ssr: false });
 
 export default function DiscoverPage() {
   const { track } = useAnalytics('/discover');
@@ -16,21 +16,13 @@ export default function DiscoverPage() {
   useTimeOnPage('/discover');
   usePerformance('/discover');
 
-  const allFundraisers = getAllFundraisers();
-  const allCommunities = getAllCommunities();
-
   useEffect(() => {
-    track('page_view', { page: 'discover', viewMode: 'feed' });
+    track('page_view', { page: 'discover', viewMode: 'tiktok_feed' });
   }, [track]);
 
   return (
     <>
-      <DiscoverFeed
-        fundraisers={allFundraisers}
-        communities={allCommunities}
-        onTrack={track}
-      />
-
+      <TikTokFeed onTrack={track} />
       <AnalyticsDashboard />
     </>
   );

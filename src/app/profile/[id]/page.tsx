@@ -17,9 +17,8 @@ import FollowerStats from '@/components/profile/FollowerStats';
 import HighlightsSection from '@/components/profile/HighlightsSection';
 import ProfileActivityFeed from '@/components/profile/ProfileActivityFeed';
 import DiscoverPeople from '@/components/profile/DiscoverPeople';
-import MyFundraiserMetrics from '@/components/profile/MyFundraiserMetrics';
+import DiscoverMetrics from '@/components/profile/DiscoverMetrics';
 import InterestsEditor from '@/components/profile/InterestsEditor';
-import MostViewedSection from '@/components/profile/MostViewedSection';
 import TopCauses from '@/components/profile/TopCauses';
 import UserCommunities from '@/components/profile/UserCommunities';
 import DonationsMade from '@/components/profile/DonationsMade';
@@ -92,19 +91,14 @@ export default function ProfilePage() {
           onFollow={(isFollowing) => track('follow_click', { isFollowing })}
         />
 
-        {/* Show metrics dashboard only for the logged-in user's own profile */}
-        {isOwner && fundraisers.length > 0 && (
-          <MyFundraiserMetrics fundraisers={fundraisers} donations={donationsReceived} />
+        {/* Show discover metrics dashboard only for the logged-in user's own profile */}
+        {isOwner && (
+          <DiscoverMetrics />
         )}
 
         {/* User interests - only on own profile */}
         {isOwner && (
           <InterestsEditor />
-        )}
-
-        {/* Most viewed fundraisers/communities from feed - only own profile */}
-        {isOwner && (
-          <MostViewedSection />
         )}
 
         {/* Top Causes - visible on ALL profiles */}

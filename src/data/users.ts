@@ -1,5 +1,7 @@
 import type { User } from './types';
 
+// ─── Seed Users (static) ────────────────────────────────────
+
 export const users: User[] = [
   {
     id: 'user-1',
@@ -133,10 +135,33 @@ export const users: User[] = [
   },
 ];
 
+// ─── Registry (Map-based for dynamic users) ─────────────────
+
+const userRegistry = new Map<string, User>();
+
+// Seed the registry with static users
+for (const u of users) {
+  userRegistry.set(u.id, u);
+}
+
 export function getUserById(id: string): User | undefined {
-  return users.find((user) => user.id === id);
+  return userRegistry.get(id);
 }
 
 export function getAllUsers(): User[] {
-  return users;
+  return Array.from(userRegistry.values());
+}
+
+export function registerUser(user: User): void {
+  userRegistry.set(user.id, user);
+}
+
+export function registerUsers(newUsers: User[]): void {
+  for (const u of newUsers) {
+    userRegistry.set(u.id, u);
+  }
+}
+
+export function getUserCount(): number {
+  return userRegistry.size;
 }

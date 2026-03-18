@@ -1,59 +1,37 @@
 import Link from 'next/link';
 
-const footerColumns = [
-  {
-    title: 'Donate',
-    links: ['How It Works', 'Discover Fundraisers', 'Pricing', 'GoFundMe Guarantee'],
-  },
-  {
-    title: 'Fundraise',
-    links: ['Start a GoFundMe', 'Fundraising Tips', 'Fundraiser Stories', 'Help Center'],
-  },
-  {
-    title: 'About',
-    links: ['About Us', 'Newsroom', 'Careers', 'Partners'],
-  },
-  {
-    title: 'Resources',
-    links: ['Blog', 'Press Center', 'Safety & Trust', 'Contact Us'],
-  },
+const footerLinks = [
+  { label: 'Discover Fundraisers', href: '/discover' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Communities', href: '/communities' },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Logo */}
-        <div className="mb-8">
-          <span className="text-2xl font-bold text-[#00b964] tracking-tight">GoFundMe</span>
-        </div>
-
-        {/* 4-column grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-          {footerColumns.map((column) => (
-            <div key={column.title}>
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">{column.title}</h3>
-              <ul className="space-y-2">
-                {column.links.map((link) => (
-                  <li key={link}>
-                    <Link
-                      href="#"
-                      className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Top row: Logo + Nav */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8">
+          <Link href="/" className="text-2xl font-bold text-[#00b964] tracking-tight">
+            GoFundMe
+          </Link>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-gray-200">
+        <div className="pt-6 border-t border-gray-200">
           <p className="text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} GoFundMe Clone. This is a demo project and not
-            affiliated with GoFundMe, Inc.
+            &copy; {new Date().getFullYear()} GoFundMe Clone.
           </p>
         </div>
       </div>

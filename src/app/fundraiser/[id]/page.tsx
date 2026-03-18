@@ -25,6 +25,9 @@ import DonationsList from '@/components/fundraiser/DonationsList';
 import ShareButtons from '@/components/fundraiser/ShareButtons';
 import AIStoryGenerator from '@/components/fundraiser/AIStoryGenerator';
 import CampaignHealthCard from '@/components/fundraiser/CampaignHealthCard';
+import DonorsLikeYou from '@/components/fundraiser/DonorsLikeYou';
+import CommunityGivingBanner from '@/components/fundraiser/CommunityGivingBanner';
+import ImpactGraph from '@/components/fundraiser/ImpactGraph';
 import FundraiserCard from '@/components/shared/FundraiserCard';
 import LiveViewers from '@/components/shared/LiveViewers';
 import SocialProofToast from '@/components/shared/SocialProofToast';
@@ -100,6 +103,7 @@ export default function FundraiserPage() {
                 setIsModalOpen(true);
               }} />
               <DonorAvatars donations={donations} />
+              <CommunityGivingBanner fundraiserId={fundraiser.id} communityId={fundraiser.communityId} />
             </div>
 
             <StorySection
@@ -116,6 +120,17 @@ export default function FundraiserPage() {
             />
 
             <CampaignHealthCard fundraiser={fundraiser} />
+
+            <DonorsLikeYou
+              fundraiserId={fundraiser.id}
+              onDonateClick={() => {
+                track('donate_button_click', { source: 'donors_like_you' });
+                track('donate_modal_open');
+                setIsModalOpen(true);
+              }}
+            />
+
+            <ImpactGraph fundraiserId={fundraiser.id} />
 
             <DonationsList donations={donations} />
 
@@ -147,6 +162,7 @@ export default function FundraiserPage() {
                 setIsModalOpen(true);
               }} />
               <DonorAvatars donations={donations} />
+              <CommunityGivingBanner fundraiserId={fundraiser.id} communityId={fundraiser.communityId} />
               <ShareButtons
                 url={`/fundraiser/${fundraiser.id}`}
                 title={fundraiser.title}

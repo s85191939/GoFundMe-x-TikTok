@@ -6,6 +6,7 @@ import { formatCurrency } from '@/lib/formatters';
 import { calculateDonationSuggestions } from '@/lib/ai';
 import SmartDonationSuggestions from '@/components/shared/SmartDonationSuggestions';
 import ImpactCalculator from '@/components/shared/ImpactCalculator';
+import PeerDonationNudge from '@/components/fundraiser/PeerDonationNudge';
 
 interface DonateModalProps {
   isOpen: boolean;
@@ -76,6 +77,8 @@ export default function DonateModal({ isOpen, onClose, fundraiser, avgDonation, 
               selectedAmount={selectedAmount}
               onSelect={handleSelectSuggestion}
             />
+
+            <PeerDonationNudge fundraiserId={fundraiser.id} />
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Or enter custom amount</label>

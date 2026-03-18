@@ -115,7 +115,8 @@ export type AnalyticsEventType =
   | 'ai_suggestion_click'
   | 'fundraiser_card_click'
   | 'feed_item_view'
-  | 'feed_scroll';
+  | 'feed_scroll'
+  | 'spotlight_reroll';
 
 export interface AIDonationSuggestion {
   amount: number;

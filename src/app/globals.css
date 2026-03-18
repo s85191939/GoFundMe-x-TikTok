@@ -69,3 +69,57 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ─── Map Spotlight Animations ─── */
+@keyframes pinDrop {
+  0% { transform: translateY(-200px) scale(0.5); opacity: 0; }
+  60% { transform: translateY(10px) scale(1.1); opacity: 1; }
+  80% { transform: translateY(-5px) scale(0.95); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes popupReveal {
+  0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 185, 100, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(0, 185, 100, 0.7); }
+}
+
+/* Remove default Leaflet DivIcon background/border */
+.donation-pin-icon {
+  background: none !important;
+  border: none !important;
+}
+
+.pin-drop-animate {
+  animation: pinDrop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.popup-reveal-animate {
+  animation: popupReveal 0.5s ease-out forwards;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Override Leaflet popup styles for dark theme */
+.leaflet-popup-content-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+.leaflet-popup-close-button {
+  display: none !important;
+}
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}

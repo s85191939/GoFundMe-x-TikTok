@@ -147,7 +147,6 @@ Every donation, no matter how small, takes weight off our shoulders and lets us 
     isActive: true,
     donationIds: ['donation-23', 'donation-24', 'donation-25', 'donation-26', 'donation-27', 'donation-28'],
   },
-  // ===== New Fundraisers (6–12) =====
   {
     id: 'fundraiser-6',
     title: 'Community Garden Revival',
@@ -344,18 +343,41 @@ These men and women put their lives on the line for us. The least we can do is m
   },
 ];
 
+// ─── Registry (Map-based for dynamic fundraisers) ───────────
+
+const fundraiserRegistry = new Map<string, Fundraiser>();
+
+// Seed the registry with static fundraisers
+for (const f of fundraisers) {
+  fundraiserRegistry.set(f.id, f);
+}
+
 export function getFundraiserById(id: string): Fundraiser | undefined {
-  return fundraisers.find((f) => f.id === id);
+  return fundraiserRegistry.get(id);
 }
 
 export function getFundraisersByOrganizer(userId: string): Fundraiser[] {
-  return fundraisers.filter((f) => f.organizerId === userId);
+  return Array.from(fundraiserRegistry.values()).filter((f) => f.organizerId === userId);
 }
 
 export function getFundraisersByCategory(category: FundraiserCategory): Fundraiser[] {
-  return fundraisers.filter((f) => f.category === category);
+  return Array.from(fundraiserRegistry.values()).filter((f) => f.category === category);
 }
 
 export function getAllFundraisers(): Fundraiser[] {
-  return fundraisers;
+  return Array.from(fundraiserRegistry.values());
+}
+
+export function registerFundraiser(fundraiser: Fundraiser): void {
+  fundraiserRegistry.set(fundraiser.id, fundraiser);
+}
+
+export function registerFundraisers(newFundraisers: Fundraiser[]): void {
+  for (const f of newFundraisers) {
+    fundraiserRegistry.set(f.id, f);
+  }
+}
+
+export function getFundraiserCount(): number {
+  return fundraiserRegistry.size;
 }
