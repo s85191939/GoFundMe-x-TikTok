@@ -8,11 +8,25 @@ A full-stack GoFundMe-style web app built with **Next.js 14**, **Tailwind CSS**,
 # Install dependencies
 npm install
 
-# Run development server
+# Set up environment variables
+cp .env.example .env.local
+```
+
+Open `.env.local` and add your [OpenRouter API key](https://openrouter.ai/keys) (free tier available):
+
+```
+NEXT_PUBLIC_OPENROUTER_API_KEY=sk-or-v1-your-key-here
+```
+
+Then start the dev server:
+
+```bash
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000)
+
+> **Note:** The app works without an API key — AI features (persuasion engine, story enhancement) will just be disabled.
 
 ## Pages
 
