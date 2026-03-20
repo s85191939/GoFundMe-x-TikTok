@@ -1,0 +1,802 @@
+{
+  "Hurricane Relief for {city} Families": {
+    "query": "hurricane damage homes",
+    "filename": "/images/fundraisers/emergency-hurricane-relief-for-families.jpg"
+  },
+  "{city} Wildfire Evacuation Fund": {
+    "query": "wildfire evacuation family",
+    "filename": "/images/fundraisers/emergency-wildfire-evacuation-fund.jpg"
+  },
+  "Flood Recovery — {city} Neighborhood": {
+    "query": "flood damaged houses",
+    "filename": "/images/fundraisers/emergency-flood-recovery-neighborhood.jpg"
+  },
+  "Tornado Damage Repair in {city}": {
+    "query": "tornado destruction homes",
+    "filename": "/images/fundraisers/emergency-tornado-damage-repair-in.jpg"
+  },
+  "Emergency Housing After {city} Fire": {
+    "query": "house fire aftermath",
+    "filename": "/images/fundraisers/emergency-emergency-housing-after-fire.jpg"
+  },
+  "Storm Damage Relief for {city}": {
+    "query": "storm damaged neighborhood",
+    "filename": "/images/fundraisers/emergency-storm-damage-relief-for.jpg"
+  },
+  "{city} Earthquake Recovery Fund": {
+    "query": "earthquake rubble rescue",
+    "filename": "/images/fundraisers/emergency-earthquake-recovery-fund.jpg"
+  },
+  "Disaster Preparedness Kit Drive — {city}": {
+    "query": "emergency supplies kits",
+    "filename": "/images/fundraisers/emergency-disaster-preparedness-kit-drive.jpg"
+  },
+  "Emergency Medical Aid for {city} Victims": {
+    "query": "emergency medical treatment",
+    "filename": "/images/fundraisers/emergency-emergency-medical-aid-for-victims.jpg"
+  },
+  "{city} Community Emergency Response Fund": {
+    "query": "emergency responders working",
+    "filename": "/images/fundraisers/emergency-community-emergency-response-fund.jpg"
+  },
+  "Winter Storm Relief for {city} Residents": {
+    "query": "snow storm damage",
+    "filename": "/images/fundraisers/emergency-winter-storm-relief-for-residents.jpg"
+  },
+  "Power Outage Recovery Aid — {city}": {
+    "query": "candlelight power outage",
+    "filename": "/images/fundraisers/emergency-power-outage-recovery-aid.jpg"
+  },
+  "{city} Mudslide Relief and Rebuilding": {
+    "query": "mudslide damage homes",
+    "filename": "/images/fundraisers/emergency-mudslide-relief-and-rebuilding.jpg"
+  },
+  "Help {city} Families After Devastating Flood": {
+    "query": "flood victims rescue",
+    "filename": "/images/fundraisers/emergency-help-families-after-devastating-flood.jpg"
+  },
+  "Emergency Shelter for {city} Displaced Families": {
+    "query": "emergency shelter cots",
+    "filename": "/images/fundraisers/emergency-emergency-shelter-for-displaced-families.jpg"
+  },
+  "Rebuild {city} After Category 4 Hurricane": {
+    "query": "hurricane destroyed buildings",
+    "filename": "/images/fundraisers/emergency-rebuild-after-category-4-hurricane.jpg"
+  },
+  "Flash Flood Emergency Aid — {city} County": {
+    "query": "flash flood rescue",
+    "filename": "/images/fundraisers/emergency-flash-flood-emergency-aid-county.jpg"
+  },
+  "{city} Heatwave Emergency Cooling Centers": {
+    "query": "cooling center elderly",
+    "filename": "/images/fundraisers/emergency-heatwave-emergency-cooling-centers.jpg"
+  },
+  "Search and Rescue Support — {city} Disaster": {
+    "query": "search rescue team",
+    "filename": "/images/fundraisers/emergency-search-and-rescue-support-disaster.jpg"
+  },
+  "Emergency Water Supply for {city} After Pipe Burst": {
+    "query": "water distribution emergency",
+    "filename": "/images/fundraisers/emergency-emergency-water-supply-for-after-pipe-burst.jpg"
+  },
+  "Help {name} Beat Cancer": {
+    "query": "cancer patient family",
+    "filename": "/images/fundraisers/medical-help-beat-cancer.jpg"
+  },
+  "{name}'s Fight Against Leukemia": {
+    "query": "child leukemia hospital",
+    "filename": "/images/fundraisers/medical-s-fight-against-leukemia.jpg"
+  },
+  "Surgery Fund for {name}": {
+    "query": "hospital patient bed",
+    "filename": "/images/fundraisers/medical-surgery-fund-for.jpg"
+  },
+  "Help {name} Cover Medical Bills": {
+    "query": "medical bills stress",
+    "filename": "/images/fundraisers/medical-help-cover-medical-bills.jpg"
+  },
+  "{name} Needs a Life-Saving Transplant": {
+    "query": "hospital waiting room",
+    "filename": "/images/fundraisers/medical-needs-a-life-saving-transplant.jpg"
+  },
+  "Chemotherapy Fund for {name}": {
+    "query": "chemotherapy treatment patient",
+    "filename": "/images/fundraisers/medical-chemotherapy-fund-for.jpg"
+  },
+  "{name}'s Recovery After Car Accident": {
+    "query": "hospital rehabilitation therapy",
+    "filename": "/images/fundraisers/medical-s-recovery-after-car-accident.jpg"
+  },
+  "Help {name} Get a Wheelchair": {
+    "query": "wheelchair user smiling",
+    "filename": "/images/fundraisers/medical-help-get-a-wheelchair.jpg"
+  },
+  "Mental Health Treatment for {name}": {
+    "query": "therapy session counseling",
+    "filename": "/images/fundraisers/medical-mental-health-treatment-for.jpg"
+  },
+  "{name}'s Dialysis Treatment Fund": {
+    "query": "kidney dialysis treatment",
+    "filename": "/images/fundraisers/medical-s-dialysis-treatment-fund.jpg"
+  },
+  "Prosthetic Leg for {name}": {
+    "query": "prosthetic leg fitting",
+    "filename": "/images/fundraisers/medical-prosthetic-leg-for.jpg"
+  },
+  "Heart Surgery for Baby {name}": {
+    "query": "baby hospital care",
+    "filename": "/images/fundraisers/medical-heart-surgery-for-baby.jpg"
+  },
+  "{name}'s Autism Therapy Fund": {
+    "query": "child autism therapy",
+    "filename": "/images/fundraisers/medical-s-autism-therapy-fund.jpg"
+  },
+  "Rare Disease Treatment for {name}": {
+    "query": "patient hospital care",
+    "filename": "/images/fundraisers/medical-rare-disease-treatment-for.jpg"
+  },
+  "Help {name} Access Insulin": {
+    "query": "insulin diabetes supplies",
+    "filename": "/images/fundraisers/medical-help-access-insulin.jpg"
+  },
+  "{name} Needs Emergency Brain Surgery": {
+    "query": "neurosurgery operating room",
+    "filename": "/images/fundraisers/medical-needs-emergency-brain-surgery.jpg"
+  },
+  "Burn Recovery Treatment for {name}": {
+    "query": "burn unit care",
+    "filename": "/images/fundraisers/medical-burn-recovery-treatment-for.jpg"
+  },
+  "Physical Therapy Fund for {name}": {
+    "query": "physical therapy session",
+    "filename": "/images/fundraisers/medical-physical-therapy-fund-for.jpg"
+  },
+  "{name}'s NICU Medical Bills": {
+    "query": "premature baby nicu",
+    "filename": "/images/fundraisers/medical-s-nicu-medical-bills.jpg"
+  },
+  "Spinal Cord Injury Recovery — {name}": {
+    "query": "spinal rehabilitation therapy",
+    "filename": "/images/fundraisers/medical-spinal-cord-injury-recovery.jpg"
+  },
+  "Send {name} to College": {
+    "query": "college student studying",
+    "filename": "/images/fundraisers/education-send-to-college.jpg"
+  },
+  "STEM Lab for {city} Elementary": {
+    "query": "kids science lab",
+    "filename": "/images/fundraisers/education-stem-lab-for-elementary.jpg"
+  },
+  "Scholarship Fund for {city} Students": {
+    "query": "graduation ceremony",
+    "filename": "/images/fundraisers/education-scholarship-fund-for-students.jpg"
+  },
+  "Books and Supplies for {city} Kids": {
+    "query": "school supplies backpack",
+    "filename": "/images/fundraisers/education-books-and-supplies-for-kids.jpg"
+  },
+  "After-School Tutoring in {city}": {
+    "query": "student tutoring session",
+    "filename": "/images/fundraisers/education-after-school-tutoring-in.jpg"
+  },
+  "{city} School Technology Upgrade": {
+    "query": "computer lab students",
+    "filename": "/images/fundraisers/education-school-technology-upgrade.jpg"
+  },
+  "Music Instruments for {city} School": {
+    "query": "kids music class",
+    "filename": "/images/fundraisers/education-music-instruments-for-school.jpg"
+  },
+  "Special Education Resources — {city}": {
+    "query": "special needs classroom",
+    "filename": "/images/fundraisers/education-special-education-resources.jpg"
+  },
+  "Coding Bootcamp Scholarships — {city}": {
+    "query": "coding class students",
+    "filename": "/images/fundraisers/education-coding-bootcamp-scholarships.jpg"
+  },
+  "ESL Classes for {city} Immigrant Families": {
+    "query": "esl classroom teaching",
+    "filename": "/images/fundraisers/education-esl-classes-for-immigrant-families.jpg"
+  },
+  "Free GED Prep Program — {city}": {
+    "query": "adult education class",
+    "filename": "/images/fundraisers/education-free-ged-prep-program.jpg"
+  },
+  "{city} Literacy Drive for Adults": {
+    "query": "adult reading books",
+    "filename": "/images/fundraisers/education-literacy-drive-for-adults.jpg"
+  },
+  "STEM Robotics Club — {city} Middle School": {
+    "query": "students building robot",
+    "filename": "/images/fundraisers/education-stem-robotics-club-middle-school.jpg"
+  },
+  "College Prep Program for {city} Youth": {
+    "query": "college prep studying",
+    "filename": "/images/fundraisers/education-college-prep-program-for-youth.jpg"
+  },
+  "Library Renovation for {city} High School": {
+    "query": "school library students",
+    "filename": "/images/fundraisers/education-library-renovation-for-high-school.jpg"
+  },
+  "Art Supplies for {city} Elementary": {
+    "query": "kids art class",
+    "filename": "/images/fundraisers/education-art-supplies-for-elementary.jpg"
+  },
+  "Teacher Appreciation Fund — {city}": {
+    "query": "teacher classroom teaching",
+    "filename": "/images/fundraisers/education-teacher-appreciation-fund.jpg"
+  },
+  "Summer School Program for {city} Kids": {
+    "query": "summer school activities",
+    "filename": "/images/fundraisers/education-summer-school-program-for-kids.jpg"
+  },
+  "{city} Student Laptop Drive": {
+    "query": "student laptop learning",
+    "filename": "/images/fundraisers/education-student-laptop-drive.jpg"
+  },
+  "Montessori Scholarships for {city}": {
+    "query": "montessori classroom children",
+    "filename": "/images/fundraisers/education-montessori-scholarships-for.jpg"
+  },
+  "{city} Clean Water Project": {
+    "query": "clean water tap",
+    "filename": "/images/fundraisers/nonprofit-clean-water-project.jpg"
+  },
+  "Homeless Shelter Expansion — {city}": {
+    "query": "homeless shelter beds",
+    "filename": "/images/fundraisers/nonprofit-homeless-shelter-expansion.jpg"
+  },
+  "{city} Youth Mentorship Program": {
+    "query": "youth mentor teaching",
+    "filename": "/images/fundraisers/nonprofit-youth-mentorship-program.jpg"
+  },
+  "Free Legal Aid — {city}": {
+    "query": "lawyer client meeting",
+    "filename": "/images/fundraisers/nonprofit-free-legal-aid.jpg"
+  },
+  "Senior Care Program for {city}": {
+    "query": "elderly care helper",
+    "filename": "/images/fundraisers/nonprofit-senior-care-program-for.jpg"
+  },
+  "{city} Nonprofit Annual Drive": {
+    "query": "community volunteers helping",
+    "filename": "/images/fundraisers/nonprofit-nonprofit-annual-drive.jpg"
+  },
+  "Meals on Wheels — {city} Chapter": {
+    "query": "delivering meals elderly",
+    "filename": "/images/fundraisers/nonprofit-meals-on-wheels-chapter.jpg"
+  },
+  "{city} Job Training Center": {
+    "query": "job skills training",
+    "filename": "/images/fundraisers/nonprofit-job-training-center.jpg"
+  },
+  "Mental Health Hotline — {city}": {
+    "query": "counselor phone support",
+    "filename": "/images/fundraisers/nonprofit-mental-health-hotline.jpg"
+  },
+  "Immigrant Services in {city}": {
+    "query": "immigration assistance office",
+    "filename": "/images/fundraisers/nonprofit-immigrant-services-in.jpg"
+  },
+  "{city} Domestic Violence Safe House": {
+    "query": "woman shelter support",
+    "filename": "/images/fundraisers/nonprofit-domestic-violence-safe-house.jpg"
+  },
+  "Free Clinic Expansion — {city}": {
+    "query": "medical clinic care",
+    "filename": "/images/fundraisers/nonprofit-free-clinic-expansion.jpg"
+  },
+  "Substance Abuse Recovery — {city}": {
+    "query": "recovery support group",
+    "filename": "/images/fundraisers/nonprofit-substance-abuse-recovery.jpg"
+  },
+  "Housing First Program — {city}": {
+    "query": "housing assistance keys",
+    "filename": "/images/fundraisers/nonprofit-housing-first-program.jpg"
+  },
+  "Disability Services Center — {city}": {
+    "query": "disability support care",
+    "filename": "/images/fundraisers/nonprofit-disability-services-center.jpg"
+  },
+  "{city} Prison Reentry Support": {
+    "query": "reentry job training",
+    "filename": "/images/fundraisers/nonprofit-prison-reentry-support.jpg"
+  },
+  "Financial Literacy Workshop — {city}": {
+    "query": "financial education class",
+    "filename": "/images/fundraisers/nonprofit-financial-literacy-workshop.jpg"
+  },
+  "Free Dental Clinic — {city}": {
+    "query": "dental care checkup",
+    "filename": "/images/fundraisers/nonprofit-free-dental-clinic.jpg"
+  },
+  "{city} Hunger Relief Network": {
+    "query": "food bank volunteers",
+    "filename": "/images/fundraisers/nonprofit-hunger-relief-network.jpg"
+  },
+  "Refugee Resettlement in {city}": {
+    "query": "refugee family welcome",
+    "filename": "/images/fundraisers/nonprofit-refugee-resettlement-in.jpg"
+  },
+  "{city} Community Garden Project": {
+    "query": "community gardening vegetables",
+    "filename": "/images/fundraisers/community-community-garden-project.jpg"
+  },
+  "Build a Playground in {city}": {
+    "query": "children playground equipment",
+    "filename": "/images/fundraisers/community-build-a-playground-in.jpg"
+  },
+  "{city} Neighborhood Beautification": {
+    "query": "planting flowers neighborhood",
+    "filename": "/images/fundraisers/community-neighborhood-beautification.jpg"
+  },
+  "Food Pantry for {city} Families": {
+    "query": "food bank volunteers",
+    "filename": "/images/fundraisers/community-food-pantry-for-families.jpg"
+  },
+  "{city} Block Party Fund": {
+    "query": "neighborhood block party",
+    "filename": "/images/fundraisers/community-block-party-fund.jpg"
+  },
+  "Farmers Market Stand for {city}": {
+    "query": "farmers market stall",
+    "filename": "/images/fundraisers/community-farmers-market-stand-for.jpg"
+  },
+  "{city} Dog Park Construction": {
+    "query": "dogs playing park",
+    "filename": "/images/fundraisers/community-dog-park-construction.jpg"
+  },
+  "Community Center Renovation — {city}": {
+    "query": "community center building",
+    "filename": "/images/fundraisers/community-community-center-renovation.jpg"
+  },
+  "{city} Public Mural Project": {
+    "query": "street art mural",
+    "filename": "/images/fundraisers/community-public-mural-project.jpg"
+  },
+  "Sidewalk Repair Drive — {city}": {
+    "query": "broken sidewalk repair",
+    "filename": "/images/fundraisers/community-sidewalk-repair-drive.jpg"
+  },
+  "{city} Neighborhood Watch Program": {
+    "query": "neighborhood safety meeting",
+    "filename": "/images/fundraisers/community-neighborhood-watch-program.jpg"
+  },
+  "Community Kitchen — {city}": {
+    "query": "soup kitchen volunteers",
+    "filename": "/images/fundraisers/community-community-kitchen.jpg"
+  },
+  "Street Light Campaign — {city}": {
+    "query": "dark street lights",
+    "filename": "/images/fundraisers/community-street-light-campaign.jpg"
+  },
+  "{city} Free WiFi Zones": {
+    "query": "public wifi cafe",
+    "filename": "/images/fundraisers/community-free-wifi-zones.jpg"
+  },
+  "Tool Library for {city}": {
+    "query": "tools workshop library",
+    "filename": "/images/fundraisers/community-tool-library-for.jpg"
+  },
+  "{city} Little Free Library Network": {
+    "query": "little free library",
+    "filename": "/images/fundraisers/community-little-free-library-network.jpg"
+  },
+  "Bike Repair Station — {city}": {
+    "query": "bike repair stand",
+    "filename": "/images/fundraisers/community-bike-repair-station.jpg"
+  },
+  "{city} Community Fridge Project": {
+    "query": "community fridge food",
+    "filename": "/images/fundraisers/community-community-fridge-project.jpg"
+  },
+  "Baby Supplies Exchange — {city}": {
+    "query": "baby clothes donation",
+    "filename": "/images/fundraisers/community-baby-supplies-exchange.jpg"
+  },
+  "Neighbor-to-Neighbor Aid — {city}": {
+    "query": "helping elderly neighbor",
+    "filename": "/images/fundraisers/community-neighbor-to-neighbor-aid.jpg"
+  },
+  "Save {city} Animal Shelter": {
+    "query": "animal shelter dogs",
+    "filename": "/images/fundraisers/animals-save-animal-shelter.jpg"
+  },
+  "Rescue Dogs of {city}": {
+    "query": "rescue dog adoption",
+    "filename": "/images/fundraisers/animals-rescue-dogs-of.jpg"
+  },
+  "{city} Cat TNR Program": {
+    "query": "feral cats outdoors",
+    "filename": "/images/fundraisers/animals-cat-tnr-program.jpg"
+  },
+  "Wildlife Rehabilitation — {city}": {
+    "query": "injured wildlife rescue",
+    "filename": "/images/fundraisers/animals-wildlife-rehabilitation.jpg"
+  },
+  "{city} Horse Rescue Fund": {
+    "query": "rescued horses stable",
+    "filename": "/images/fundraisers/animals-horse-rescue-fund.jpg"
+  },
+  "Spay/Neuter Drive — {city}": {
+    "query": "veterinary clinic cat",
+    "filename": "/images/fundraisers/animals-spay-neuter-drive.jpg"
+  },
+  "{city} Foster Care for Puppies": {
+    "query": "foster puppies playing",
+    "filename": "/images/fundraisers/animals-foster-care-for-puppies.jpg"
+  },
+  "Emergency Vet Bills for Strays — {city}": {
+    "query": "injured stray cat",
+    "filename": "/images/fundraisers/animals-emergency-vet-bills-for-strays.jpg"
+  },
+  "Senior Pet Sanctuary — {city}": {
+    "query": "elderly dog senior",
+    "filename": "/images/fundraisers/animals-senior-pet-sanctuary.jpg"
+  },
+  "{city} Exotic Animal Rescue": {
+    "query": "rescued exotic pets",
+    "filename": "/images/fundraisers/animals-exotic-animal-rescue.jpg"
+  },
+  "Barn Cat Rescue — {city} County": {
+    "query": "barn cats hay",
+    "filename": "/images/fundraisers/animals-barn-cat-rescue-county.jpg"
+  },
+  "{city} Marine Animal Rehab": {
+    "query": "seal rehabilitation center",
+    "filename": "/images/fundraisers/animals-marine-animal-rehab.jpg"
+  },
+  "Service Dog Training Fund — {city}": {
+    "query": "service dog training",
+    "filename": "/images/fundraisers/animals-service-dog-training-fund.jpg"
+  },
+  "{city} Animal Cruelty Prevention": {
+    "query": "rescued animal shelter",
+    "filename": "/images/fundraisers/animals-animal-cruelty-prevention.jpg"
+  },
+  "Therapy Animals for {city} Hospitals": {
+    "query": "therapy dog hospital",
+    "filename": "/images/fundraisers/animals-therapy-animals-for-hospitals.jpg"
+  },
+  "Feral Cat Colony Care — {city}": {
+    "query": "feral cat feeding",
+    "filename": "/images/fundraisers/animals-feral-cat-colony-care.jpg"
+  },
+  "{city} Pet Food Bank": {
+    "query": "pet food donation",
+    "filename": "/images/fundraisers/animals-pet-food-bank.jpg"
+  },
+  "Emergency Animal Evacuation Kit — {city}": {
+    "query": "pet emergency supplies",
+    "filename": "/images/fundraisers/animals-emergency-animal-evacuation-kit.jpg"
+  },
+  "{city} Parrot Rescue Network": {
+    "query": "rescued parrots cage",
+    "filename": "/images/fundraisers/animals-parrot-rescue-network.jpg"
+  },
+  "Rabbit Rescue and Rehoming — {city}": {
+    "query": "rescued rabbits hutch",
+    "filename": "/images/fundraisers/animals-rabbit-rescue-and-rehoming.jpg"
+  },
+  "{city} River Cleanup Project": {
+    "query": "river cleanup volunteers",
+    "filename": "/images/fundraisers/environment-river-cleanup-project.jpg"
+  },
+  "Solar Panels for {city} Schools": {
+    "query": "school solar installation",
+    "filename": "/images/fundraisers/environment-solar-panels-for-schools.jpg"
+  },
+  "{city} Urban Tree Planting": {
+    "query": "planting street trees",
+    "filename": "/images/fundraisers/environment-urban-tree-planting.jpg"
+  },
+  "Beach Cleanup — {city} Coast": {
+    "query": "beach cleanup volunteers",
+    "filename": "/images/fundraisers/environment-beach-cleanup-coast.jpg"
+  },
+  "Community Composting in {city}": {
+    "query": "community compost bins",
+    "filename": "/images/fundraisers/environment-community-composting-in.jpg"
+  },
+  "{city} Air Quality Monitors": {
+    "query": "air quality sensor",
+    "filename": "/images/fundraisers/environment-air-quality-monitors.jpg"
+  },
+  "Wetland Restoration — {city}": {
+    "query": "wetland restoration work",
+    "filename": "/images/fundraisers/environment-wetland-restoration.jpg"
+  },
+  "{city} Recycling Education Drive": {
+    "query": "recycling education class",
+    "filename": "/images/fundraisers/environment-recycling-education-drive.jpg"
+  },
+  "Rain Garden Installation — {city}": {
+    "query": "rain garden construction",
+    "filename": "/images/fundraisers/environment-rain-garden-installation.jpg"
+  },
+  "EV Charging Stations for {city}": {
+    "query": "ev charging station",
+    "filename": "/images/fundraisers/environment-ev-charging-stations-for.jpg"
+  },
+  "Pollinator Garden — {city} Park": {
+    "query": "butterfly garden flowers",
+    "filename": "/images/fundraisers/environment-pollinator-garden-park.jpg"
+  },
+  "{city} Watershed Protection Fund": {
+    "query": "watershed conservation",
+    "filename": "/images/fundraisers/environment-watershed-protection-fund.jpg"
+  },
+  "Ocean Plastic Removal — {city}": {
+    "query": "ocean plastic cleanup",
+    "filename": "/images/fundraisers/environment-ocean-plastic-removal.jpg"
+  },
+  "{city} Green Roof Initiative": {
+    "query": "green roof garden",
+    "filename": "/images/fundraisers/environment-green-roof-initiative.jpg"
+  },
+  "Native Plant Restoration — {city}": {
+    "query": "native plant restoration",
+    "filename": "/images/fundraisers/environment-native-plant-restoration.jpg"
+  },
+  "Microplastic Research — {city} Harbor": {
+    "query": "water sampling research",
+    "filename": "/images/fundraisers/environment-microplastic-research-harbor.jpg"
+  },
+  "{city} Community Solar Farm": {
+    "query": "solar farm panels",
+    "filename": "/images/fundraisers/environment-community-solar-farm.jpg"
+  },
+  "Trail Restoration — {city} Mountains": {
+    "query": "trail maintenance crew",
+    "filename": "/images/fundraisers/environment-trail-restoration-mountains.jpg"
+  },
+  "Noise Pollution Study — {city}": {
+    "query": "sound measurement equipment",
+    "filename": "/images/fundraisers/environment-noise-pollution-study.jpg"
+  },
+  "Lead Pipe Replacement — {city}": {
+    "query": "pipe replacement work",
+    "filename": "/images/fundraisers/environment-lead-pipe-replacement.jpg"
+  },
+  "In Memory of {name}": {
+    "query": "sunset candle memorial",
+    "filename": "/images/fundraisers/memorial-in-memory-of.jpg"
+  },
+  "Memorial Fund for {name}'s Family": {
+    "query": "grieving family together",
+    "filename": "/images/fundraisers/memorial-memorial-fund-for-s-family.jpg"
+  },
+  "{name} Memorial Scholarship": {
+    "query": "graduation ceremony celebration",
+    "filename": "/images/fundraisers/memorial-memorial-scholarship.jpg"
+  },
+  "Honoring {name} — Family Support": {
+    "query": "family holding hands",
+    "filename": "/images/fundraisers/memorial-honoring-family-support.jpg"
+  },
+  "{name} Memorial Playground": {
+    "query": "children playground playing",
+    "filename": "/images/fundraisers/memorial-memorial-playground.jpg"
+  },
+  "Celebration of Life — {name}": {
+    "query": "white flowers sunset",
+    "filename": "/images/fundraisers/memorial-celebration-of-life.jpg"
+  },
+  "{name} Memorial Bench at {city} Park": {
+    "query": "park bench sunset",
+    "filename": "/images/fundraisers/memorial-memorial-bench-at-park.jpg"
+  },
+  "Legacy Fund in Honor of {name}": {
+    "query": "hands holding seedling",
+    "filename": "/images/fundraisers/memorial-legacy-fund-in-honor-of.jpg"
+  },
+  "{name} Memorial Garden": {
+    "query": "memorial garden flowers",
+    "filename": "/images/fundraisers/memorial-memorial-garden.jpg"
+  },
+  "Tribute to {name} — Community Fund": {
+    "query": "community gathering outdoors",
+    "filename": "/images/fundraisers/memorial-tribute-to-community-fund.jpg"
+  },
+  "Officer {name} Memorial Fund": {
+    "query": "police officer badge",
+    "filename": "/images/fundraisers/memorial-officer-memorial-fund.jpg"
+  },
+  "Firefighter {name} Family Support": {
+    "query": "firefighter helmet uniform",
+    "filename": "/images/fundraisers/memorial-firefighter-family-support.jpg"
+  },
+  "{name} Memorial Music Scholarship": {
+    "query": "student playing music",
+    "filename": "/images/fundraisers/memorial-memorial-music-scholarship.jpg"
+  },
+  "Coach {name} Youth Fund": {
+    "query": "coach teaching kids",
+    "filename": "/images/fundraisers/memorial-coach-youth-fund.jpg"
+  },
+  "Teacher {name} Memorial Library": {
+    "query": "library books reading",
+    "filename": "/images/fundraisers/memorial-teacher-memorial-library.jpg"
+  },
+  "Nurse {name} Healthcare Fund": {
+    "query": "nurse helping patient",
+    "filename": "/images/fundraisers/memorial-nurse-healthcare-fund.jpg"
+  },
+  "{name} Memorial Art Installation": {
+    "query": "public art sculpture",
+    "filename": "/images/fundraisers/memorial-memorial-art-installation.jpg"
+  },
+  "In Loving Memory of {name}": {
+    "query": "rose petals heart",
+    "filename": "/images/fundraisers/memorial-in-loving-memory-of.jpg"
+  },
+  "{name} Memorial 5K Run Fund": {
+    "query": "runners starting line",
+    "filename": "/images/fundraisers/memorial-memorial-5k-run-fund.jpg"
+  },
+  "Veteran {name} Family Aid": {
+    "query": "military family reunion",
+    "filename": "/images/fundraisers/memorial-veteran-family-aid.jpg"
+  },
+  "{city} Youth Soccer League Fund": {
+    "query": "kids soccer practice",
+    "filename": "/images/fundraisers/sports-youth-soccer-league-fund.jpg"
+  },
+  "Basketball Courts for {city}": {
+    "query": "outdoor basketball court",
+    "filename": "/images/fundraisers/sports-basketball-courts-for.jpg"
+  },
+  "{city} Little League Equipment": {
+    "query": "youth baseball game",
+    "filename": "/images/fundraisers/sports-little-league-equipment.jpg"
+  },
+  "Swimming Lessons for {city} Kids": {
+    "query": "kids swimming lesson",
+    "filename": "/images/fundraisers/sports-swimming-lessons-for-kids.jpg"
+  },
+  "Track and Field — {city} Youth": {
+    "query": "youth track running",
+    "filename": "/images/fundraisers/sports-track-and-field-youth.jpg"
+  },
+  "{city} Girls Volleyball Team": {
+    "query": "girls volleyball game",
+    "filename": "/images/fundraisers/sports-girls-volleyball-team.jpg"
+  },
+  "Adaptive Sports Program — {city}": {
+    "query": "wheelchair basketball game",
+    "filename": "/images/fundraisers/sports-adaptive-sports-program.jpg"
+  },
+  "{city} Youth Wrestling Club": {
+    "query": "youth wrestling match",
+    "filename": "/images/fundraisers/sports-youth-wrestling-club.jpg"
+  },
+  "Tennis Courts Renovation — {city}": {
+    "query": "tennis court repair",
+    "filename": "/images/fundraisers/sports-tennis-courts-renovation.jpg"
+  },
+  "{city} Community Pool Repair": {
+    "query": "swimming pool maintenance",
+    "filename": "/images/fundraisers/sports-community-pool-repair.jpg"
+  },
+  "Martial Arts Program — {city}": {
+    "query": "kids karate class",
+    "filename": "/images/fundraisers/sports-martial-arts-program.jpg"
+  },
+  "{city} Running Club for Teens": {
+    "query": "teen cross country",
+    "filename": "/images/fundraisers/sports-running-club-for-teens.jpg"
+  },
+  "Lacrosse Equipment — {city}": {
+    "query": "youth lacrosse game",
+    "filename": "/images/fundraisers/sports-lacrosse-equipment.jpg"
+  },
+  "{city} Figure Skating Fund": {
+    "query": "figure skating practice",
+    "filename": "/images/fundraisers/sports-figure-skating-fund.jpg"
+  },
+  "Gymnastics Scholarships — {city}": {
+    "query": "youth gymnastics training",
+    "filename": "/images/fundraisers/sports-gymnastics-scholarships.jpg"
+  },
+  "{city} Youth Hockey League": {
+    "query": "kids ice hockey",
+    "filename": "/images/fundraisers/sports-youth-hockey-league.jpg"
+  },
+  "Rowing Club Equipment — {city}": {
+    "query": "rowing team practice",
+    "filename": "/images/fundraisers/sports-rowing-club-equipment.jpg"
+  },
+  "{city} Youth Flag Football": {
+    "query": "kids flag football",
+    "filename": "/images/fundraisers/sports-youth-flag-football.jpg"
+  },
+  "Skateboard Park — {city}": {
+    "query": "skatepark teenagers",
+    "filename": "/images/fundraisers/sports-skateboard-park.jpg"
+  },
+  "{city} Youth Cycling Team": {
+    "query": "youth bike racing",
+    "filename": "/images/fundraisers/sports-youth-cycling-team.jpg"
+  },
+  "{city} Arts Festival Fund": {
+    "query": "outdoor art festival",
+    "filename": "/images/fundraisers/other-arts-festival-fund.jpg"
+  },
+  "Music Instruments for {city} Band": {
+    "query": "school band instruments",
+    "filename": "/images/fundraisers/other-music-instruments-for-band.jpg"
+  },
+  "Community Theater in {city}": {
+    "query": "theater stage performers",
+    "filename": "/images/fundraisers/other-community-theater-in.jpg"
+  },
+  "{city} Film Festival Support": {
+    "query": "outdoor movie screening",
+    "filename": "/images/fundraisers/other-film-festival-support.jpg"
+  },
+  "Podcast Studio for {city} Youth": {
+    "query": "recording studio microphone",
+    "filename": "/images/fundraisers/other-podcast-studio-for-youth.jpg"
+  },
+  "{city} Street Art Festival": {
+    "query": "mural painting artist",
+    "filename": "/images/fundraisers/other-street-art-festival.jpg"
+  },
+  "Photography Workshop — {city}": {
+    "query": "photography class learning",
+    "filename": "/images/fundraisers/other-photography-workshop.jpg"
+  },
+  "Dance Recital Fund — {city}": {
+    "query": "dance performance stage",
+    "filename": "/images/fundraisers/other-dance-recital-fund.jpg"
+  },
+  "{city} Writers Workshop": {
+    "query": "writing group table",
+    "filename": "/images/fundraisers/other-writers-workshop.jpg"
+  },
+  "Pottery Studio for {city}": {
+    "query": "pottery wheel class",
+    "filename": "/images/fundraisers/other-pottery-studio-for.jpg"
+  },
+  "Comedy Night Fundraiser — {city}": {
+    "query": "comedy club microphone",
+    "filename": "/images/fundraisers/other-comedy-night-fundraiser.jpg"
+  },
+  "{city} Jazz Festival Fund": {
+    "query": "jazz band performing",
+    "filename": "/images/fundraisers/other-jazz-festival-fund.jpg"
+  },
+  "Documentary Film — {city} Stories": {
+    "query": "film camera crew",
+    "filename": "/images/fundraisers/other-documentary-film-stories.jpg"
+  },
+  "Maker Space for {city} Teens": {
+    "query": "makerspace workshop",
+    "filename": "/images/fundraisers/other-maker-space-for-teens.jpg"
+  },
+  "Fashion Design Program — {city}": {
+    "query": "fashion design sewing",
+    "filename": "/images/fundraisers/other-fashion-design-program.jpg"
+  },
+  "{city} Craft Fair Organization": {
+    "query": "craft fair vendors",
+    "filename": "/images/fundraisers/other-craft-fair-organization.jpg"
+  },
+  "Animation Workshop — {city}": {
+    "query": "animation studio drawing",
+    "filename": "/images/fundraisers/other-animation-workshop.jpg"
+  },
+  "Culinary Arts Camp — {city}": {
+    "query": "cooking class kitchen",
+    "filename": "/images/fundraisers/other-culinary-arts-camp.jpg"
+  },
+  "{city} Open Mic Night Series": {
+    "query": "open mic performer",
+    "filename": "/images/fundraisers/other-open-mic-night-series.jpg"
+  },
+  "Digital Art Lab — {city}": {
+    "query": "digital art classroom",
+    "filename": "/images/fundraisers/other-digital-art-lab.jpg"
+  }
+}

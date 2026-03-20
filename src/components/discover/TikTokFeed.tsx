@@ -131,10 +131,13 @@ export default function TikTokFeed({ onTrack }: TikTokFeedProps) {
     }
   }, [activeIndex, feedEntries.length]);
 
-  // Auto-dismiss follow toast after 3 seconds
+  // Auto-dismiss follow toast after 3 seconds, then reset counter
   useEffect(() => {
     if (!showFollowToast) return;
-    const t = setTimeout(() => setShowFollowToast(false), 3000);
+    const t = setTimeout(() => {
+      setShowFollowToast(false);
+      setTotalFollowed(0); // Reset so next batch starts fresh
+    }, 3000);
     return () => clearTimeout(t);
   }, [showFollowToast, totalFollowed]);
 

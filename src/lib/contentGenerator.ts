@@ -6,6 +6,125 @@
  */
 
 import type { Fundraiser, FundraiserCategory, Community } from '@/data/types';
+import { TITLE_TEMPLATE_IMAGES } from './titleImageMap';
+
+// ─── Category Hero Images (Unsplash) ────────────────────────
+
+const CATEGORY_IMAGES: Record<string, string[]> = {
+  emergency: [
+    '/images/fundraisers/wildfire-smoke.jpg',
+    '/images/fundraisers/flood-damage.jpg',
+    '/images/fundraisers/hurricane-aftermath.jpg',
+    '/images/fundraisers/emergency-responders.jpg',
+    '/images/fundraisers/disaster-relief-supplies.jpg',
+    '/images/fundraisers/earthquake-rubble.jpg',
+    '/images/fundraisers/relief-workers.jpg',
+    '/images/fundraisers/storm-damage.jpg',
+  ],
+  medical: [
+    '/images/fundraisers/medical-research.jpg',
+    '/images/fundraisers/hospital-corridor.jpg',
+    '/images/fundraisers/doctor-patient.jpg',
+    '/images/fundraisers/child-hospital.jpg',
+    '/images/fundraisers/medical-equipment.jpg',
+    '/images/fundraisers/healthcare-worker.jpg',
+    '/images/fundraisers/surgery.jpg',
+    '/images/fundraisers/doctor.jpg',
+  ],
+  education: [
+    '/images/fundraisers/classroom.jpg',
+    '/images/fundraisers/books-stacked.jpg',
+    '/images/fundraisers/students-learning.jpg',
+    '/images/fundraisers/graduation.jpg',
+    '/images/fundraisers/school-supplies.jpg',
+    '/images/fundraisers/school-building.jpg',
+    '/images/fundraisers/student-studying.jpg',
+    '/images/fundraisers/library.jpg',
+  ],
+  nonprofit: [
+    '/images/fundraisers/children-charity.jpg',
+    '/images/fundraisers/donation-boxes.jpg',
+    '/images/fundraisers/volunteers.jpg',
+    '/images/fundraisers/giving-hands.jpg',
+    '/images/fundraisers/food-bank.jpg',
+    '/images/fundraisers/charity-event.jpg',
+    '/images/fundraisers/helping-hands.jpg',
+    '/images/fundraisers/volunteer-team.jpg',
+  ],
+  community: [
+    '/images/fundraisers/community-gathering.jpg',
+    '/images/fundraisers/friends-together.jpg',
+    '/images/fundraisers/community-garden.jpg',
+    '/images/fundraisers/block-party.jpg',
+    '/images/fundraisers/community-workspace.jpg',
+    '/images/fundraisers/group-dinner.jpg',
+    '/images/fundraisers/community-mural.jpg',
+    '/images/fundraisers/festival.jpg',
+  ],
+  animals: [
+    '/images/fundraisers/rescued-dog.jpg',
+    '/images/fundraisers/dogs-running.jpg',
+    '/images/fundraisers/cat-shelter.jpg',
+    '/images/fundraisers/golden-retriever.jpg',
+    '/images/fundraisers/puppy-face.jpg',
+    '/images/fundraisers/cat-closeup.jpg',
+    '/images/fundraisers/animal-shelter.jpg',
+    '/images/fundraisers/parrot.jpg',
+  ],
+  environment: [
+    '/images/fundraisers/forest.jpg',
+    '/images/fundraisers/sunlit-trees.jpg',
+    '/images/fundraisers/seedling.jpg',
+    '/images/fundraisers/misty-valley.jpg',
+    '/images/fundraisers/green-mountains.jpg',
+    '/images/fundraisers/ocean-coast.jpg',
+    '/images/fundraisers/recycling.jpg',
+    '/images/fundraisers/solar-panels.jpg',
+  ],
+  memorial: [
+    '/images/fundraisers/candles.jpg',
+    '/images/fundraisers/sunset-clouds.jpg',
+    '/images/fundraisers/flowers-memorial.jpg',
+    '/images/fundraisers/single-flower.jpg',
+    '/images/fundraisers/peaceful-lake.jpg',
+    '/images/fundraisers/sunset-horizon.jpg',
+    '/images/fundraisers/tree-of-life.jpg',
+    '/images/fundraisers/peaceful-nature.jpg',
+  ],
+  sports: [
+    '/images/fundraisers/soccer-field.jpg',
+    '/images/fundraisers/basketball.jpg',
+    '/images/fundraisers/soccer-ball.jpg',
+    '/images/fundraisers/cycling.jpg',
+    '/images/fundraisers/swimming.jpg',
+    '/images/fundraisers/running.jpg',
+    '/images/fundraisers/team-sports.jpg',
+    '/images/fundraisers/baseball.jpg',
+  ],
+  other: [
+    '/images/fundraisers/art-painting.jpg',
+    '/images/fundraisers/pottery-studio.jpg',
+    '/images/fundraisers/creative-workspace.jpg',
+    '/images/fundraisers/music-studio.jpg',
+    '/images/fundraisers/photography.jpg',
+    '/images/fundraisers/maker-space.jpg',
+    '/images/fundraisers/creative-work.jpg',
+    '/images/fundraisers/collaborative-project.jpg',
+  ],
+};
+
+// Title template → image mapping imported from LLM-generated file
+// (see scripts/match-images.mjs to regenerate)
+
+function getCategoryImage(category: string, rand: () => number, titleTemplate?: string): string {
+  // Direct template match — every title template has its own image
+  if (titleTemplate && TITLE_TEMPLATE_IMAGES[titleTemplate]) {
+    return TITLE_TEMPLATE_IMAGES[titleTemplate];
+  }
+  // Fall back to category images for any unmatched templates
+  const images = CATEGORY_IMAGES[category] || CATEGORY_IMAGES['other'];
+  return images[Math.floor(rand() * images.length)];
+}
 
 // ─── Seeded PRNG ────────────────────────────────────────────
 
@@ -577,7 +696,7 @@ export function generateFundraisers(
       id,
       title,
       slug,
-      heroImage: `https://picsum.photos/seed/${id}/1200/600`,
+      heroImage: getCategoryImage(category, rand, template),
       organizerId,
       beneficiaryName,
       beneficiaryType,

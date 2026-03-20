@@ -166,15 +166,15 @@ export default function ImpactGraph({ fundraiserId }: ImpactGraphProps) {
               transition: 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
             }}
           >
-            <circle cx={CX} cy={CY} r={52} fill="#00b964" />
-            <circle cx={CX} cy={CY} r={52} fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth={2.5} />
-            <text x={CX} y={CY - 14} textAnchor="middle" fontSize={28}>
+            <circle cx={CX} cy={CY} r={68} fill="#00b964" />
+            <circle cx={CX} cy={CY} r={68} fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth={2.5} />
+            <text x={CX} y={CY - 22} textAnchor="middle" fontSize={28}>
               {getCategoryEmoji(currentFundraiser.category)}
             </text>
-            {splitTitle(currentFundraiser.title, 18).map((line, li) => (
+            {splitTitle(currentFundraiser.title, 16).slice(0, 2).map((line, li) => (
               <text
                 key={li}
-                x={CX} y={CY + 10 + li * 15}
+                x={CX} y={CY + 4 + li * 15}
                 textAnchor="middle" fontSize={12} fontFamily={FONT}
                 fill="white" fontWeight={700} letterSpacing="0.01em"
               >
@@ -182,7 +182,7 @@ export default function ImpactGraph({ fundraiserId }: ImpactGraphProps) {
               </text>
             ))}
             <text
-              x={CX} y={CY + 10 + splitTitle(currentFundraiser.title, 18).length * 15 + 4}
+              x={CX} y={CY + 4 + Math.min(splitTitle(currentFundraiser.title, 16).length, 2) * 15 + 6}
               textAnchor="middle" fontSize={11} fontFamily={FONT}
               fill="rgba(255,255,255,0.8)" fontWeight={500}
             >
