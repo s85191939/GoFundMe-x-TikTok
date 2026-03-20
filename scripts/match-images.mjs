@@ -12,7 +12,11 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const IMG_DIR = path.join(__dirname, '..', 'public', 'images', 'fundraisers');
-const OPENROUTER_KEY = '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';
+const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
+if (!OPENROUTER_KEY) {
+  console.error('❌ Set OPENROUTER_API_KEY environment variable first');
+  process.exit(1);
+}
 const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const UNSPLASH_ACCESS_KEY = null; // We'll use source.unsplash.com which doesn't need a key
 
